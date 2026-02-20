@@ -30,7 +30,7 @@ const About = () => {
           </p>
           <p>
             Through this blog, I share practical tutorials, SEO insights, and career advice for 
-            developers. Everything I write comes from real experience — no fluff, just actionable knowledge.
+            developers. Everything I write comes from real experience, no fluff, just actionable knowledge.
           </p>
         </section>
 
@@ -39,7 +39,7 @@ const About = () => {
           <div className="space-y-4 text-muted-foreground">
             <ul className="space-y-3 ml-6">
               <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>Build responsive, performant web applications with React & TypeScript</span></li>
-              <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>Optimize websites for search engines — technical SEO, on-page, and link building</span></li>
+              <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>Optimize websites for search engines: technical SEO, on-page, and link building</span></li>
               <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>Improve Core Web Vitals and page performance</span></li>
               <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>Write about web development, SEO, and career growth</span></li>
             </ul>
