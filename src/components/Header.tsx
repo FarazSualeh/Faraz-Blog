@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,17 +11,29 @@ const Header = () => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
-    
+
     setIsDark(shouldBeDark);
     if (shouldBeDark) {
       document.documentElement.classList.add("dark");
     }
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   const toggleTheme = () => {
     const newTheme = !isDark;
     setIsDark(newTheme);
-    
+
     if (newTheme) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -29,6 +42,16 @@ const Header = () => {
       localStorage.setItem("theme", "light");
     }
   };
+
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "Articles", href: "/#articles" },
+    { label: "Wellness", href: "/wellness" },
+    { label: "Travel", href: "/travel" },
+    { label: "Creativity", href: "/creativity" },
+    { label: "Growth", href: "/growth" },
+    { label: "About", href: "/about" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 py-2 sm:py-4">
@@ -45,29 +68,23 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-2">
-            <a href="/" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Home
-            </a>
-            <a href="/#articles" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Articles
-            </a>
-            <a href="/wellness" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Wellness
-            </a>
-            <a href="/travel" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Travel
-            </a>
-            <a href="/about" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              About
-            </a>
+          <nav className="hidden md:flex items-center gap-1">
+            {navLinks.slice(0, 5).map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all"
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
             <button
               onClick={toggleTheme}
-              className="p-1.5 sm:p-2 rounded-full hover:bg-muted/60 transition-all"
+              className="p-2 rounded-full hover:bg-muted/60 transition-all"
               aria-label="Toggle theme"
             >
               {isDark ? (
@@ -76,48 +93,61 @@ const Header = () => {
                 <Moon className="h-4 w-4 sm:h-5 sm:w-5" />
               )}
             </button>
-            
+
             <Button className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-2 hover:scale-105 transition-all">
               Join Now
             </Button>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-1.5 sm:p-2"
+              className="md:hidden p-2 rounded-full hover:bg-muted/60 transition-all"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
+              {isMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-fade-in">
-            <nav className="flex flex-col gap-4">
-              <a href="/" className="text-sm font-medium hover:text-accent transition-colors">
-                Home
-              </a>
-              <a href="/#articles" className="text-sm font-medium hover:text-accent transition-colors">
-                Articles
-              </a>
-              <a href="/wellness" className="text-sm font-medium hover:text-accent transition-colors">
-                Wellness
-              </a>
-              <a href="/travel" className="text-sm font-medium hover:text-accent transition-colors">
-                Travel
-              </a>
-              <a href="/about" className="text-sm font-medium hover:text-accent transition-colors">
-                About
-              </a>
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-full">
-                Join Now
-              </Button>
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 top-[4.5rem] z-40 animate-fade-in">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+            onClick={() => setIsMenuOpen(false)}
+          />
+
+          {/* Menu panel */}
+          <div className="relative mx-3 mt-2 rounded-3xl bg-card border border-border shadow-xl overflow-hidden animate-slide-up">
+            <nav className="flex flex-col p-6 gap-1">
+              {navLinks.map((link, i) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center text-base font-medium px-4 py-3 rounded-2xl hover:bg-muted/60 transition-all active:scale-[0.98]"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="mt-4 pt-4 border-t border-border">
+                <Button
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-full py-6 text-base font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Join Now
+                </Button>
+              </div>
             </nav>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   );
 };
