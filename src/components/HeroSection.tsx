@@ -1,6 +1,6 @@
 import { Github, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import farazProfile from "@/assets/faraz-profile.jpg";
+import heroLaptop from "@/assets/hero-laptop.jpg";
 
 const HeroSection = () => {
   return (
@@ -9,9 +9,9 @@ const HeroSection = () => {
         {/* Left side - Image */}
         <div className="relative aspect-[4/3] md:aspect-auto rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden animate-scale-in">
           <img
-            src={farazProfile}
-            alt="Faraz Sualeh - Web Developer"
-            className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110"
+            src={heroLaptop}
+            alt="Laptop with code editor"
+            className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
           />
         </div>
 
