@@ -114,9 +114,9 @@ const Index = () => {
             <div>
               <h3 className="font-semibold mb-4">Connect</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">GitHub</a></li>
-                <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">LinkedIn</a></li>
-                <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Twitter</a></li>
+                <li><a href="https://github.com/farazsualeh" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">GitHub</a></li>
+                <li><a href="https://linkedin.com/in/faraz-sualeh" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">LinkedIn</a></li>
+                <li><a href="https://instagram.com/editsbyfaraz" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Instagram</a></li>
               </ul>
             </div>
             <div>
