@@ -40,13 +40,10 @@ All colors MUST be HSL.
     --radius: 1rem;
 
     /* Custom design tokens */
-    --tag-financing: 210 50% 75%;
-    --tag-lifestyle: 140 20% 70%;
-    --tag-community: 25 35% 60%;
-    --tag-wellness: 280 30% 75%;
-    --tag-travel: 195 50% 70%;
-    --tag-creativity: 330 40% 75%;
-    --tag-growth: 50 45% 70%;
+    --tag-webdev: 210 50% 75%;
+    --tag-seo: 140 30% 65%;
+    --tag-tech: 270 40% 70%;
+    --tag-career: 30 50% 65%;
 
     /* Polish design tokens */
     --cream: 40 40% 90%;
@@ -86,13 +83,10 @@ All colors MUST be HSL.
     --ring: 36 44% 96%;
 
     /* Dark mode tag colors */
-    --tag-financing: 210 40% 45%;
-    --tag-lifestyle: 140 20% 40%;
-    --tag-community: 25 30% 40%;
-    --tag-wellness: 280 25% 45%;
-    --tag-travel: 195 40% 45%;
-    --tag-creativity: 330 35% 45%;
-    --tag-growth: 50 40% 45%;
+    --tag-webdev: 210 40% 45%;
+    --tag-seo: 140 25% 40%;
+    --tag-tech: 270 30% 45%;
+    --tag-career: 30 40% 40%;
 
     /* Dark mode polish tokens */
     --cream: 40 20% 25%;
@@ -235,31 +229,19 @@ All colors MUST be HSL.
     animation-fill-mode: forwards;
   }
 
-  .tag-financing {
-    @apply bg-[hsl(var(--tag-financing))] text-primary;
+  .tag-webdev {
+    @apply bg-[hsl(var(--tag-webdev))] text-primary;
   }
 
-  .tag-lifestyle {
-    @apply bg-[hsl(var(--tag-lifestyle))] text-primary;
+  .tag-seo {
+    @apply bg-[hsl(var(--tag-seo))] text-primary;
   }
 
-  .tag-community {
-    @apply bg-[hsl(var(--tag-community))] text-primary;
+  .tag-tech {
+    @apply bg-[hsl(var(--tag-tech))] text-primary;
   }
 
-  .tag-wellness {
-    @apply bg-[hsl(var(--tag-wellness))] text-primary;
-  }
-
-  .tag-travel {
-    @apply bg-[hsl(var(--tag-travel))] text-primary;
-  }
-
-  .tag-creativity {
-    @apply bg-[hsl(var(--tag-creativity))] text-primary;
-  }
-
-  .tag-growth {
-    @apply bg-[hsl(var(--tag-growth))] text-primary;
+  .tag-career {
+    @apply bg-[hsl(var(--tag-career))] text-primary;
   }
 }

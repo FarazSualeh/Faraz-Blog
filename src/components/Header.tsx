@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Moon, Sun, Search } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,29 +10,18 @@ const Header = () => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
-
     setIsDark(shouldBeDark);
-    if (shouldBeDark) {
-      document.documentElement.classList.add("dark");
-    }
+    if (shouldBeDark) document.documentElement.classList.add("dark");
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isMenuOpen]);
 
   const toggleTheme = () => {
     const newTheme = !isDark;
     setIsDark(newTheme);
-
     if (newTheme) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -45,12 +33,12 @@ const Header = () => {
 
   const navLinks = [
     { label: "Home", href: "/" },
-    { label: "Articles", href: "/#articles" },
-    { label: "Wellness", href: "/wellness" },
-    { label: "Travel", href: "/travel" },
-    { label: "Creativity", href: "/creativity" },
-    { label: "Growth", href: "/growth" },
+    { label: "Web Dev", href: "/web-dev" },
+    { label: "SEO", href: "/seo" },
+    { label: "Tech", href: "/tech" },
+    { label: "Career", href: "/career" },
     { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -61,9 +49,9 @@ const Header = () => {
           <div className="flex items-center min-w-0">
             <a href="/" className="flex items-center gap-1.5 sm:gap-2">
               <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-primary-foreground font-bold text-base sm:text-lg">P</span>
+                <span className="text-primary-foreground font-bold text-base sm:text-lg">F</span>
               </div>
-              <span className="text-base sm:text-xl font-bold font-serif truncate">Perspective</span>
+              <span className="text-base sm:text-xl font-bold font-serif truncate">Faraz Sualeh</span>
             </a>
           </div>
 
@@ -87,46 +75,31 @@ const Header = () => {
               className="p-2 rounded-full hover:bg-muted/60 transition-all"
               aria-label="Toggle theme"
             >
-              {isDark ? (
-                <Sun className="h-4 w-4 sm:h-5 sm:w-5" />
-              ) : (
-                <Moon className="h-4 w-4 sm:h-5 sm:w-5" />
-              )}
+              {isDark ? <Sun className="h-4 w-4 sm:h-5 sm:w-5" /> : <Moon className="h-4 w-4 sm:h-5 sm:w-5" />}
             </button>
 
-            <Button className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-2 hover:scale-105 transition-all">
-              Join Now
+            <Button className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-2 hover:scale-105 transition-all" asChild>
+              <a href="/contact">Hire Me</a>
             </Button>
 
-            {/* Mobile Menu Button */}
             <button
               className="md:hidden p-2 rounded-full hover:bg-muted/60 transition-all"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 top-[4.5rem] z-40 animate-fade-in">
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-background/80 backdrop-blur-sm"
-            onClick={() => setIsMenuOpen(false)}
-          />
-
-          {/* Menu panel */}
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
           <div className="relative mx-3 mt-2 rounded-3xl bg-card border border-border shadow-xl overflow-hidden animate-slide-up">
             <nav className="flex flex-col p-6 gap-1">
-              {navLinks.map((link, i) => (
+              {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
@@ -137,11 +110,8 @@ const Header = () => {
                 </a>
               ))}
               <div className="mt-4 pt-4 border-t border-border">
-                <Button
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-full py-6 text-base font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Join Now
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-full py-6 text-base font-medium" asChild>
+                  <a href="/contact" onClick={() => setIsMenuOpen(false)}>Hire Me</a>
                 </Button>
               </div>
             </nav>

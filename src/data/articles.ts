@@ -22,263 +22,212 @@ export interface Article {
   tags: string[];
 }
 
+export const getArticleById = (id: string) => articles.find((a) => a.id === id);
+
+export const getRelatedArticles = (currentId: string) => {
+  const current = getArticleById(currentId);
+  if (!current) return articles.slice(0, 3);
+  return articles
+    .filter((a) => a.id !== currentId && a.category === current.category)
+    .slice(0, 3)
+    .concat(articles.filter((a) => a.id !== currentId && a.category !== current.category))
+    .slice(0, 3);
+};
+
+const faraz = {
+  name: "Faraz Sualeh",
+  avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+  bio: "Web Developer & SEO Specialist helping businesses grow online.",
+};
+
 export const articles: Article[] = [
   {
     id: "001",
-    title: "Whispers of Wisdom",
-    subtitle: "Finding clarity in the quiet moments of financial planning",
-    category: "Financing",
-    date: "Oct 16, 2024",
-    readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1920&q=80",
-    author: {
-      name: "David Kim",
-      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-      bio: "Financial wellness writer and personal growth advocate",
-    },
+    title: "Core Web Vitals: The Complete Guide for 2025",
+    subtitle: "How to optimize LCP, FID, and CLS for better rankings",
+    category: "SEO",
+    date: "Feb 10, 2026",
+    readTime: "8 min",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80",
+    author: faraz,
     content: {
-      introduction: "In a world of financial noise and conflicting advice, sometimes the wisest course of action is to listen to the whispers—those quiet moments of clarity that cut through the chaos. Financial planning isn't just about numbers; it's about understanding your values and aligning your resources with what truly matters.",
+      introduction: "Core Web Vitals have become a critical ranking factor. Understanding and optimizing these metrics is essential for any website that wants to rank well and provide a great user experience.",
       sections: [
-        {
-          heading: "The Power of Quiet Reflection",
-          content: "Before making any major financial decision, we often rush to consume more information, read more articles, or seek more advice. Yet the most profound insights often come when we step back and simply reflect. Taking time for quiet contemplation allows us to connect with our deeper values and understand what financial security truly means to us—not what society tells us it should mean.",
-        },
-        {
-          heading: "Building Financial Awareness",
-          content: "True financial wisdom begins with awareness. This means honestly assessing where you are, understanding your patterns and behaviors around money, and recognizing the emotional drivers behind your financial decisions. It's not about judgment, but about clear-eyed observation. When we can see our financial reality clearly, we're empowered to make intentional changes.",
-        },
-        {
-          heading: "Small Steps, Lasting Change",
-          content: "The whispers of wisdom often guide us toward small, sustainable actions rather than dramatic overhauls. Perhaps it's automating a small savings contribution, or finally organizing your financial documents, or having that honest conversation about money with your partner. These quiet actions, consistently applied, create profound change over time.",
-        },
-        {
-          heading: "Values-Based Financial Planning",
-          content: "When we align our financial decisions with our core values, money becomes a tool for creating the life we want rather than a source of stress and confusion. Ask yourself: What do I truly value? How can my financial choices support those values? The answers to these questions are your compass in navigating financial decisions.",
-        },
+        { heading: "What Are Core Web Vitals?", content: "Core Web Vitals are a set of specific factors that Google considers important in a webpage's overall user experience. They measure loading performance (LCP), interactivity (INP), and visual stability (CLS). These metrics directly impact your search rankings." },
+        { heading: "Optimizing Largest Contentful Paint", content: "LCP measures how long it takes for the largest content element to become visible. Optimize by using next-gen image formats, implementing lazy loading, preloading critical resources, and using a CDN for faster delivery." },
+        { heading: "Fixing Cumulative Layout Shift", content: "CLS measures unexpected layout shifts. Always set dimensions on images and videos, use CSS aspect-ratio, avoid inserting content above existing content, and prefer transform animations over layout-triggering properties." },
+        { heading: "Tools for Measuring", content: "Use Google PageSpeed Insights, Lighthouse, Chrome DevTools, and Search Console's Core Web Vitals report to identify and track improvements. Regular monitoring ensures your optimizations stick." },
       ],
-      conclusion: "Financial wisdom isn't found in the loudest voices or the most complex strategies. It's discovered in quiet moments of reflection, in the gentle guidance of your values, and in the consistent application of simple, intentional actions. Listen to the whispers—they often speak the deepest truths.",
+      conclusion: "Investing in Core Web Vitals optimization pays dividends in both rankings and user satisfaction. Start with the biggest impact items and iterate consistently.",
     },
-    tags: ["financial planning", "mindfulness", "personal finance", "values"],
+    tags: ["seo", "core web vitals", "performance", "google"],
   },
   {
     id: "002",
-    title: "Ink-Stained Insights",
-    subtitle: "The art of journaling for a more intentional lifestyle",
-    category: "Lifestyle",
-    date: "Oct 23, 2024",
+    title: "Building Blazing-Fast React Apps with Vite",
+    subtitle: "Why Vite is the future of frontend tooling",
+    category: "Web Dev",
+    date: "Jan 28, 2026",
     readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1920&q=80",
-    author: {
-      name: "Sofia Rodriguez",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80",
-      bio: "Creative writer and mindfulness practitioner",
-    },
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=80",
+    author: faraz,
     content: {
-      introduction: "There's something profound about putting pen to paper—the way ink flows across the page, capturing thoughts that might otherwise evaporate. In our digital age, the practice of journaling offers a rare opportunity to slow down, reflect, and connect with ourselves in a tangible, meaningful way.",
+      introduction: "Vite has revolutionized the way we build frontend applications. With near-instant hot module replacement and optimized builds, it's become the go-to choice for modern React projects.",
       sections: [
-        {
-          heading: "Why Analog Matters",
-          content: "While digital tools have their place, there's neuroscience behind why handwriting engages our brain differently. The physical act of writing slows our thinking, allowing for deeper processing and reflection. It's a form of mindfulness in action, anchoring us in the present moment while we explore our inner landscape.",
-        },
-        {
-          heading: "Creating Your Practice",
-          content: "Your journaling practice doesn't need to be elaborate or time-consuming. Start with five minutes each morning or evening. Write freely without judgment—this isn't about perfect prose or profound insights. It's about showing up for yourself, creating space for reflection, and building a relationship with your thoughts and feelings.",
-        },
-        {
-          heading: "Prompts for Deeper Reflection",
-          content: "When you're not sure what to write, prompts can guide you: What am I grateful for today? What challenged me and what did I learn? What do I need more of in my life? What can I let go of? These questions invite introspection and help us identify patterns in our thoughts and behaviors.",
-        },
-        {
-          heading: "The Gift of Looking Back",
-          content: "One of journaling's greatest gifts reveals itself over time. Looking back through old entries, we see how we've grown, what we've overcome, and patterns we might want to change. This historical perspective offers wisdom we can't access in the present moment alone.",
-        },
+        { heading: "Why Vite Over CRA?", content: "Create React App uses Webpack under the hood which can be painfully slow for large projects. Vite uses native ES modules during development, making startup and HMR nearly instant regardless of project size." },
+        { heading: "Setting Up a React + TypeScript Project", content: "Getting started with Vite is simple: npm create vite@latest my-app -- --template react-ts. This gives you a fully configured TypeScript React project with fast refresh out of the box." },
+        { heading: "Optimizing Your Build", content: "Vite uses Rollup for production builds. Configure code splitting, tree shaking, and asset optimization through vite.config.ts. Use dynamic imports for route-based code splitting to keep initial bundle sizes small." },
+        { heading: "Essential Plugins", content: "The Vite ecosystem has excellent plugins: vite-plugin-svgr for SVG components, vite-plugin-pwa for service workers, and @vitejs/plugin-react for Fast Refresh. These enhance your development workflow significantly." },
       ],
-      conclusion: "Journaling is more than record-keeping—it's a practice of self-discovery and intentional living. Those ink-stained pages become a map of your inner journey, a testament to your growth, and a tool for creating the life you envision. Start today, even if just for five minutes. Your future self will thank you.",
+      conclusion: "Vite isn't just faster—it fundamentally improves the development experience. If you haven't switched yet, there's never been a better time.",
     },
-    tags: ["journaling", "mindfulness", "self-reflection", "lifestyle"],
+    tags: ["react", "vite", "javascript", "web development"],
   },
   {
     id: "003",
-    title: "Musings in Grayscale",
-    subtitle: "Finding beauty and clarity in life's neutral moments",
-    category: "Community",
-    date: "Dec 4, 2024",
-    readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=1920&q=80",
-    author: {
-      name: "Marcus Chen",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-      bio: "Community builder and contemplative writer",
-    },
-    content: {
-      introduction: "We often seek the extremes—the peaks of joy, the depths of sorrow, the bright colors that define our experiences. But what about the in-between? The neutral moments, the grayscale of everyday life that makes up most of our existence? There's unexpected beauty and wisdom in these spaces.",
-      sections: [
-        {
-          heading: "The Overlooked Majority",
-          content: "Most of life isn't dramatic. It's morning coffee, routine commutes, quiet evenings, and ordinary conversations. We tend to overlook these moments, waiting for something 'significant' to happen. Yet these grayscale moments—when approached with presence and appreciation—contain their own quiet richness.",
-        },
-        {
-          heading: "Community in the Mundane",
-          content: "Some of the deepest community connections happen not in grand gestures but in ordinary moments: the neighbor who waves each morning, the barista who remembers your order, the colleague who checks in during a regular Tuesday. These small, repeated interactions create the texture of belonging.",
-        },
-        {
-          heading: "Finding Clarity in Neutrality",
-          content: "When we're not caught up in emotional extremes, we can see more clearly. The grayscale moments offer perspective—a chance to observe our lives without the distortion of intense emotion. This clarity helps us make better decisions and understand what truly matters to us.",
-        },
-        {
-          heading: "Cultivating Appreciation",
-          content: "Learning to appreciate the neutral doesn't mean settling for less—it means expanding our capacity for contentment. It's recognizing that a quiet Sunday afternoon, a simple meal with friends, or a walk without destination has its own value. This appreciation makes us resilient and less dependent on external circumstances for our sense of wellbeing.",
-        },
-      ],
-      conclusion: "Life in grayscale isn't boring—it's the canvas on which everything else appears. By learning to appreciate these neutral moments and the community connections within them, we enrich our entire experience. The next time you find yourself in an 'ordinary' moment, pause and look closer. You might be surprised by what you find.",
-    },
-    tags: ["mindfulness", "community", "presence", "contentment"],
-  },
-  {
-    id: "W001",
-    title: "Finding Balance: How to Create a Sustainable Self-Care Routine",
-    subtitle: "Developing practices that actually stick",
-    category: "Wellness",
-    date: "Mar 19, 2025",
+    title: "Keyword Research Strategies That Actually Work",
+    subtitle: "A practical framework for finding high-impact keywords",
+    category: "SEO",
+    date: "Jan 15, 2026",
     readTime: "7 min",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&q=80",
-    author: {
-      name: "Emma Thompson",
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
-      bio: "Certified wellness coach and holistic health practitioner",
-    },
+    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1920&q=80",
+    author: faraz,
     content: {
-      introduction: "Self-care has become a buzzword, often associated with spa days and indulgent treats. While these have their place, true self-care is about sustainable practices that support your physical, mental, and emotional wellbeing consistently—not just when you're burned out.",
+      introduction: "Keyword research remains the foundation of effective SEO. But the landscape has evolved—it's no longer about stuffing exact-match keywords. Here's a modern approach that delivers results.",
       sections: [
-        {
-          heading: "Understanding Your Needs",
-          content: "Before building a self-care routine, you need to understand what you actually need. Are you lacking physical movement, mental rest, emotional processing, or social connection? Self-care isn't one-size-fits-all. Take time to honestly assess where you're depleted and what would genuinely nourish you.",
-        },
-        {
-          heading: "Start Small and Specific",
-          content: "The biggest mistake people make with self-care is trying to overhaul everything at once. Instead, start with one small, specific practice. Maybe it's five minutes of stretching each morning, or drinking a glass of water before coffee, or spending ten minutes outside daily. Small, consistent actions create lasting change.",
-        },
-        {
-          heading: "The Four Pillars of Wellness",
-          content: "A balanced self-care routine addresses four key areas: physical health (movement, nutrition, sleep), mental health (stress management, learning, rest), emotional health (processing feelings, connection, creativity), and spiritual health (meaning, purpose, values alignment). You don't need elaborate practices in each area—just intentional attention.",
-        },
-        {
-          heading: "Making It Sustainable",
-          content: "Sustainability comes from integration, not addition. Instead of adding more to your already full schedule, look for ways to integrate self-care into existing routines. Take walking meetings, practice mindful eating during meals you already eat, or turn your commute into a time for podcasts that inspire you.",
-        },
-        {
-          heading: "When Self-Care Feels Selfish",
-          content: "Many people struggle with guilt around self-care, especially caregivers. Remember: you can't pour from an empty cup. Taking care of yourself isn't selfish—it's necessary for showing up as your best self for others. Your wellbeing matters, not just as a means to serve others, but as an end in itself.",
-        },
+        { heading: "Think Topics, Not Just Keywords", content: "Google understands semantic meaning. Instead of targeting individual keywords, build content around topic clusters. Create comprehensive pillar pages supported by related subtopic articles that interlink naturally." },
+        { heading: "Analyzing Search Intent", content: "Every search has intent: informational, navigational, commercial, or transactional. Aligning your content with the correct intent is more important than keyword volume. Check what currently ranks to understand what Google thinks the intent is." },
+        { heading: "Finding Low-Competition Gems", content: "Use tools like Ahrefs, SEMrush, or even Google's 'People Also Ask' to find long-tail keywords with decent volume but low difficulty. These are your quickest wins for building organic traffic." },
+        { heading: "Competitor Gap Analysis", content: "Identify keywords your competitors rank for that you don't. These gaps represent opportunities where you can create better content and capture traffic your competitors are already proving exists." },
       ],
-      conclusion: "A sustainable self-care routine isn't about perfection or elaborate practices. It's about consistent, intentional actions that support your wellbeing across all dimensions of health. Start small, be patient with yourself, and remember that self-care is a practice, not a destination.",
+      conclusion: "Great keyword research is part science, part empathy. Understand what your audience is searching for, match their intent, and deliver genuine value. The rankings will follow.",
     },
-    tags: ["self-care", "wellness", "mindfulness", "sustainable living"],
+    tags: ["seo", "keyword research", "content strategy", "organic traffic"],
   },
   {
-    id: "T001",
-    title: "The Art of Slow Travel: Embracing Local Experiences",
-    subtitle: "Discovering depth over distance in your journeys",
-    category: "Travel",
-    date: "Mar 15, 2025",
-    readTime: "8 min",
-    image: "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1920&q=80",
-    author: {
-      name: "Marcus Chen",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-      bio: "Slow travel advocate and cultural immersion specialist",
-    },
+    id: "004",
+    title: "Tailwind CSS Tips Every Developer Should Know",
+    subtitle: "Level up your Tailwind workflow with these pro techniques",
+    category: "Web Dev",
+    date: "Dec 20, 2025",
+    readTime: "5 min",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&q=80",
+    author: faraz,
     content: {
-      introduction: "In an age of whirlwind tours and bucket-list chasing, slow travel offers a radical alternative: staying longer, going deeper, and truly experiencing a place rather than just seeing it. It's not about how many countries you've visited, but how deeply you've connected with the places you've been.",
+      introduction: "Tailwind CSS has changed how we write styles. But are you using it to its full potential? Here are techniques that will make your Tailwind code cleaner and more maintainable.",
       sections: [
-        {
-          heading: "What Is Slow Travel?",
-          content: "Slow travel is a philosophy that prioritizes depth over breadth, quality over quantity. It means staying in fewer places for longer periods, developing routines in new locations, shopping at local markets, and building relationships with locals. It's about experiencing a destination as a temporary resident rather than a tourist passing through.",
-        },
-        {
-          heading: "The Benefits of Slowing Down",
-          content: "When you slow down, travel becomes richer and more meaningful. You notice details you'd miss when rushing from sight to sight. You have time for spontaneous conversations, unexpected discoveries, and genuine cultural exchange. You also return home less exhausted and with deeper memories than a photo collection of landmarks.",
-        },
-        {
-          heading: "Practical Steps for Slow Travel",
-          content: "Start by choosing one place and staying at least a week—two or more is even better. Rent an apartment instead of staying in hotels. Shop at local markets, take local transportation, and establish routines like a regular cafe or morning walk. Say yes to invitations from locals. Allow for unplanned time in your schedule.",
-        },
-        {
-          heading: "Overcoming FOMO",
-          content: "The biggest challenge of slow travel is overcoming the fear of missing out. You might not see every museum or landmark. That's okay. You're choosing depth over breadth, experience over completion. Remember: the goal isn't to check off a list—it's to truly experience and understand a place.",
-        },
-        {
-          heading: "Environmental and Cultural Benefits",
-          content: "Slow travel is inherently more sustainable. Fewer flights, more local spending, less overtourism impact. It's also more respectful to local communities. When you stay longer and engage more deeply, you contribute more meaningfully to local economies and build bridges of understanding between cultures.",
-        },
+        { heading: "Design Tokens with CSS Variables", content: "Define your color palette, spacing, and typography as CSS custom properties, then reference them in tailwind.config. This gives you a single source of truth and makes theming trivial—including dark mode." },
+        { heading: "Component Variants with CVA", content: "Use class-variance-authority (CVA) to create type-safe component variants. This keeps your component APIs clean and your styles organized without sacrificing Tailwind's utility-first approach." },
+        { heading: "Responsive Design Patterns", content: "Master the mobile-first approach. Use Tailwind's responsive prefixes strategically: start with the mobile layout, then layer on complexity. The container query plugin adds component-level responsiveness." },
+        { heading: "Performance Optimization", content: "Tailwind's JIT compiler generates only the classes you use. But also consider: extracting repeated patterns into @apply directives, using the safelist sparingly, and leveraging content configuration to reduce scan scope." },
       ],
-      conclusion: "Slow travel isn't just a way of moving through the world—it's a mindset that values presence, connection, and understanding. In slowing down, we paradoxically experience more. The next time you travel, consider going fewer places and staying longer. You might discover that the journey becomes infinitely richer.",
+      conclusion: "Tailwind is more than utility classes—it's a design system framework. Master these patterns and you'll build UIs faster with more consistency.",
     },
-    tags: ["slow travel", "sustainable travel", "cultural immersion", "mindful exploration"],
+    tags: ["tailwind", "css", "web development", "design systems"],
   },
   {
-    id: "G001",
-    title: "Minimalist Living: Creating Space for What Matters Most",
-    subtitle: "The freedom found in letting go",
-    category: "Growth",
-    date: "Mar 10, 2025",
+    id: "005",
+    title: "Technical SEO Audit Checklist for 2025",
+    subtitle: "Everything you need to check for a healthy, crawlable site",
+    category: "SEO",
+    date: "Dec 5, 2025",
+    readTime: "10 min",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80",
+    author: faraz,
+    content: {
+      introduction: "A technical SEO audit is like a health check for your website. Without a solid technical foundation, even the best content won't rank. Here's my comprehensive checklist.",
+      sections: [
+        { heading: "Crawlability & Indexing", content: "Check your robots.txt, XML sitemap, and canonical tags. Use Google Search Console to identify crawl errors. Ensure important pages are indexable and unimportant ones are properly blocked or noindexed." },
+        { heading: "Site Architecture", content: "A flat, logical site structure helps both users and search engines. Every important page should be reachable within 3 clicks from the homepage. Use breadcrumbs and internal linking strategically." },
+        { heading: "Page Speed & Performance", content: "Run Lighthouse audits on key pages. Optimize images, minify CSS/JS, implement caching, and consider a CDN. Page speed is both a ranking factor and a user experience necessity." },
+        { heading: "Schema Markup", content: "Implement structured data for articles, FAQs, products, or whatever content types you publish. Schema doesn't directly boost rankings but can earn rich snippets that dramatically improve click-through rates." },
+      ],
+      conclusion: "Technical SEO isn't glamorous, but it's the foundation everything else builds on. Run this audit quarterly and fix issues promptly. Your rankings will thank you.",
+    },
+    tags: ["technical seo", "audit", "crawlability", "site speed"],
+  },
+  {
+    id: "006",
+    title: "From Junior to Senior: A Developer's Growth Roadmap",
+    subtitle: "Skills and mindsets that accelerate your career",
+    category: "Career",
+    date: "Nov 18, 2025",
+    readTime: "7 min",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80",
+    author: faraz,
+    content: {
+      introduction: "The jump from junior to senior developer isn't just about writing better code. It's about thinking differently, communicating effectively, and making decisions that scale. Here's what I've learned on the journey.",
+      sections: [
+        { heading: "Master the Fundamentals", content: "Senior developers don't just know frameworks—they understand the underlying principles. Invest in learning data structures, algorithms, design patterns, and system design. These fundamentals transfer across any technology." },
+        { heading: "Think in Systems", content: "Juniors think about code. Seniors think about systems. Consider how your code fits into the larger architecture, how it will scale, how it will fail, and how others will maintain it. This systems thinking is the hallmark of seniority." },
+        { heading: "Communication Is Code", content: "Writing clean code is communication. So is documentation, PR descriptions, technical proposals, and mentoring juniors. The best senior developers are excellent communicators who can translate complex ideas for any audience." },
+        { heading: "Build Your Brand", content: "Write blog posts, contribute to open source, speak at meetups. This isn't just career advancement—it deepens your own understanding and connects you with a community that accelerates your growth." },
+      ],
+      conclusion: "Seniority isn't measured in years—it's measured in impact. Focus on solving real problems, lifting up your team, and continuously learning. The title will follow.",
+    },
+    tags: ["career", "developer growth", "soft skills", "mentoring"],
+  },
+  {
+    id: "007",
+    title: "TypeScript Best Practices for Clean Codebases",
+    subtitle: "Write type-safe code that your team will love",
+    category: "Tech",
+    date: "Nov 2, 2025",
     readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1920&q=80",
-    author: {
-      name: "David Kim",
-      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-      bio: "Minimalism advocate and intentional living coach",
-    },
+    image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=1920&q=80",
+    author: faraz,
     content: {
-      introduction: "Minimalism isn't about having less for the sake of having less—it's about making room for more: more clarity, more freedom, more focus on what truly matters. In our consumer-driven culture, choosing to live with less is a radical act of intentionality.",
+      introduction: "TypeScript has become the standard for serious JavaScript projects. But simply adding types isn't enough—you need patterns and practices that make TypeScript work for your team, not against it.",
       sections: [
-        {
-          heading: "Beyond the Aesthetic",
-          content: "Minimalism has been co-opted by a certain aesthetic—white walls, sparse furniture, perfectly curated spaces. But true minimalism is about values, not visuals. It's about removing excess so you can focus on what adds value to your life. Your minimalist life might look different from someone else's, and that's exactly as it should be.",
-        },
-        {
-          heading: "The Process of Letting Go",
-          content: "Minimalism is as much psychological as it is physical. As you sort through possessions, you're also examining attachments, identities, and habits. That box of college textbooks isn't just books—it's who you used to be. Learning to let go of physical items helps us practice letting go in other areas of life too.",
-        },
-        {
-          heading: "Quality Over Quantity",
-          content: "Minimalism isn't about deprivation—it's about being selective. Instead of ten mediocre pairs of shoes, keep three you love. Instead of a closet full of clothes you never wear, maintain a smaller collection of pieces that make you feel great. When you reduce quantity, you can increase quality.",
-        },
-        {
-          heading: "Mental and Digital Minimalism",
-          content: "Physical clutter is just one dimension. Consider your commitments, your schedule, your digital life. Do you need to be on five social media platforms? Must you say yes to every invitation? Minimalism applies to time and attention too. Protect your mental space as carefully as your physical space.",
-        },
-        {
-          heading: "The Freedom of Less",
-          content: "Here's what minimalism creates: less time spent cleaning and organizing, fewer decisions to make, less financial pressure, more mental clarity, greater focus on relationships and experiences. In removing what doesn't matter, we make room for what does. That's the true gift of minimalism.",
-        },
+        { heading: "Strict Mode From Day One", content: "Enable strict mode in tsconfig.json from the start. It catches more bugs at compile time and forces better habits. Retrofitting strict mode into a loose codebase is painful—start strict and stay strict." },
+        { heading: "Discriminated Unions Over Enums", content: "Discriminated unions provide better type narrowing and are more idiomatic TypeScript. They work naturally with switch statements and exhaustive checking, making impossible states truly impossible." },
+        { heading: "Zod for Runtime Validation", content: "TypeScript types disappear at runtime. For API responses and user input, use Zod to create schemas that validate at runtime and infer TypeScript types. One source of truth for both validation and typing." },
+        { heading: "Utility Types Are Your Friend", content: "Master Pick, Omit, Partial, Required, Record, and ReturnType. These built-in utility types let you derive types from existing ones, keeping your type definitions DRY and maintainable." },
       ],
-      conclusion: "Minimalism is a journey, not a destination. You don't need to purge everything or live in an empty room. Start with one drawer, one category, one area of life. As you experience the lightness that comes from letting go, you'll naturally want to continue. What you'll discover isn't just less stuff—it's more freedom, clarity, and space for what truly matters.",
+      conclusion: "TypeScript is most powerful when you work with the type system, not around it. Invest in learning advanced patterns and your codebase will be safer, more readable, and easier to refactor.",
     },
-    tags: ["minimalism", "intentional living", "simplicity", "personal growth"],
+    tags: ["typescript", "javascript", "best practices", "clean code"],
+  },
+  {
+    id: "008",
+    title: "Link Building in 2025: What Still Works",
+    subtitle: "Ethical strategies for earning high-quality backlinks",
+    category: "SEO",
+    date: "Oct 15, 2025",
+    readTime: "8 min",
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1920&q=80",
+    author: faraz,
+    content: {
+      introduction: "Backlinks remain one of Google's top ranking factors. But the game has changed—spammy link building tactics don't work anymore. Here's what actually moves the needle in 2025.",
+      sections: [
+        { heading: "Create Linkable Assets", content: "The best link building starts with creating content people naturally want to reference: original research, comprehensive guides, interactive tools, and unique data visualizations. Build something worth linking to." },
+        { heading: "Digital PR & HARO", content: "Respond to journalist queries on platforms like HARO, Connectively, and Help a B2B Writer. Being quoted as an expert earns high-authority links from news sites and industry publications." },
+        { heading: "Broken Link Building", content: "Find broken links on relevant sites using tools like Ahrefs. Create equivalent or better content, then reach out to suggest your resource as a replacement. It's a win-win for both parties." },
+        { heading: "Guest Posting Done Right", content: "Guest posting still works when done ethically. Focus on relevant, authoritative sites in your niche. Provide genuine value in your content, and the link becomes a natural byproduct, not the sole purpose." },
+      ],
+      conclusion: "The best link building doesn't feel like link building—it feels like creating value. Focus on being genuinely useful and the links will come.",
+    },
+    tags: ["seo", "link building", "backlinks", "digital pr"],
+  },
+  {
+    id: "009",
+    title: "Building a Personal Brand as a Developer",
+    subtitle: "Stand out in a competitive market with authenticity",
+    category: "Career",
+    date: "Oct 1, 2025",
+    readTime: "5 min",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80",
+    author: faraz,
+    content: {
+      introduction: "In a market with millions of developers, your personal brand is what sets you apart. It's not about self-promotion—it's about sharing your unique perspective and building genuine connections.",
+      sections: [
+        { heading: "Start a Blog", content: "Writing about what you learn solidifies your understanding and helps others. You don't need to be an expert—documenting your learning journey is valuable. Consistency matters more than perfection." },
+        { heading: "Be Active on GitHub", content: "Your GitHub profile is your developer portfolio. Contribute to open source, maintain your own projects, and write clear READMEs. Show that you can write code that others can understand and use." },
+        { heading: "Network Authentically", content: "Attend meetups, join Discord communities, engage on Twitter/X. Help others without expecting anything in return. The developer community is generous—when you give, opportunities come back naturally." },
+        { heading: "Specialize and Own It", content: "Being 'a developer' is generic. Being 'the developer who writes about SEO-optimized React apps' is memorable. Find your niche at the intersection of your skills and interests, and own it." },
+      ],
+      conclusion: "Your personal brand is built one genuine interaction at a time. Share what you know, help others, and be consistent. The career opportunities will follow.",
+    },
+    tags: ["career", "personal branding", "networking", "developer"],
   },
 ];
-
-export function getArticleById(id: string): Article | undefined {
-  return articles.find(article => article.id === id);
-}
-
-export function getRelatedArticles(currentId: string, limit: number = 3): Article[] {
-  const currentArticle = getArticleById(currentId);
-  if (!currentArticle) return articles.slice(0, limit);
-  
-  // Get articles from the same category, excluding current
-  const related = articles.filter(
-    article => article.id !== currentId && article.category === currentArticle.category
-  );
-  
-  // If not enough from same category, add others
-  if (related.length < limit) {
-    const others = articles.filter(
-      article => article.id !== currentId && article.category !== currentArticle.category
-    );
-    return [...related, ...others].slice(0, limit);
-  }
-  
-  return related.slice(0, limit);
-}
