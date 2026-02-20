@@ -1,3 +1,14 @@
+import thumb001 from "@/assets/thumbnails/thumb-001.jpg";
+import thumb002 from "@/assets/thumbnails/thumb-002.jpg";
+import thumb003 from "@/assets/thumbnails/thumb-003.jpg";
+import thumb004 from "@/assets/thumbnails/thumb-004.jpg";
+import thumb005 from "@/assets/thumbnails/thumb-005.jpg";
+import thumb006 from "@/assets/thumbnails/thumb-006.jpg";
+import thumb007 from "@/assets/thumbnails/thumb-007.jpg";
+import thumb008 from "@/assets/thumbnails/thumb-008.jpg";
+import thumb009 from "@/assets/thumbnails/thumb-009.jpg";
+import thumb010 from "@/assets/thumbnails/thumb-010.jpg";
+
 export interface Article {
   id: string;
   title: string;
@@ -48,7 +59,7 @@ export const articles: Article[] = [
     category: "SEO",
     date: "Feb 10, 2026",
     readTime: "8 min",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80",
+    image: thumb001,
     author: faraz,
     content: {
       introduction: "Core Web Vitals have become a critical ranking factor. Understanding and optimizing these metrics is essential for any website that wants to rank well and provide a great user experience.",
@@ -69,7 +80,7 @@ export const articles: Article[] = [
     category: "Web Dev",
     date: "Jan 28, 2026",
     readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=80",
+    image: thumb002,
     author: faraz,
     content: {
       introduction: "Vite has revolutionized the way we build frontend applications. With near-instant hot module replacement and optimized builds, it's become the go-to choice for modern React projects.",
@@ -90,7 +101,7 @@ export const articles: Article[] = [
     category: "SEO",
     date: "Jan 15, 2026",
     readTime: "7 min",
-    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1920&q=80",
+    image: thumb003,
     author: faraz,
     content: {
       introduction: "Keyword research remains the foundation of effective SEO. But the landscape has evolved and it's no longer about stuffing exact-match keywords. Here's a modern approach that delivers results.",
@@ -111,7 +122,7 @@ export const articles: Article[] = [
     category: "Web Dev",
     date: "Dec 20, 2025",
     readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&q=80",
+    image: thumb004,
     author: faraz,
     content: {
       introduction: "Tailwind CSS has changed how we write styles. But are you using it to its full potential? Here are techniques that will make your Tailwind code cleaner and more maintainable.",
@@ -132,7 +143,7 @@ export const articles: Article[] = [
     category: "SEO",
     date: "Dec 5, 2025",
     readTime: "10 min",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80",
+    image: thumb005,
     author: faraz,
     content: {
       introduction: "A technical SEO audit is like a health check for your website. Without a solid technical foundation, even the best content won't rank. Here's my comprehensive checklist.",
@@ -153,7 +164,7 @@ export const articles: Article[] = [
     category: "Career",
     date: "Nov 18, 2025",
     readTime: "7 min",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80",
+    image: thumb006,
     author: faraz,
     content: {
       introduction: "The jump from junior to senior developer isn't just about writing better code. It's about thinking differently, communicating effectively, and making decisions that scale. Here's what I've learned on the journey.",
@@ -174,7 +185,7 @@ export const articles: Article[] = [
     category: "Tech",
     date: "Nov 2, 2025",
     readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=1920&q=80",
+    image: thumb007,
     author: faraz,
     content: {
       introduction: "TypeScript has become the standard for serious JavaScript projects. But simply adding types isn't enough, you need patterns and practices that make TypeScript work for your team, not against it.",
@@ -195,7 +206,7 @@ export const articles: Article[] = [
     category: "SEO",
     date: "Oct 15, 2025",
     readTime: "8 min",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1920&q=80",
+    image: thumb008,
     author: faraz,
     content: {
       introduction: "Backlinks remain one of Google's top ranking factors. But the game has changed and spammy link building tactics don't work anymore. Here's what actually moves the needle in 2025.",
@@ -216,7 +227,7 @@ export const articles: Article[] = [
     category: "Career",
     date: "Oct 1, 2025",
     readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80",
+    image: thumb009,
     author: faraz,
     content: {
       introduction: "In a market with millions of developers, your personal brand is what sets you apart. It's not about self-promotion, it's about sharing your unique perspective and building genuine connections.",
@@ -237,7 +248,7 @@ export const articles: Article[] = [
     category: "Web Dev",
     date: "Feb 15, 2026",
     readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=1920&q=80",
+    image: thumb010,
     author: faraz,
     content: {
       introduction: "I recently started learning Next.js alongside my studies and honestly, it was confusing at first. Coming from plain React, the whole file-based routing and server components thing felt like a different world. But after a few weeks of building stuff, things started clicking. Here's what I learned so you don't have to struggle like I did.",
