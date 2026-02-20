@@ -79,7 +79,7 @@ export const articles: Article[] = [
         { heading: "Optimizing Your Build", content: "Vite uses Rollup for production builds. Configure code splitting, tree shaking, and asset optimization through vite.config.ts. Use dynamic imports for route-based code splitting to keep initial bundle sizes small." },
         { heading: "Essential Plugins", content: "The Vite ecosystem has excellent plugins: vite-plugin-svgr for SVG components, vite-plugin-pwa for service workers, and @vitejs/plugin-react for Fast Refresh. These enhance your development workflow significantly." },
       ],
-      conclusion: "Vite isn't just faster—it fundamentally improves the development experience. If you haven't switched yet, there's never been a better time.",
+      conclusion: "Vite isn't just faster, it fundamentally improves the development experience. If you haven't switched yet, there's never been a better time.",
     },
     tags: ["react", "vite", "javascript", "web development"],
   },
@@ -93,7 +93,7 @@ export const articles: Article[] = [
     image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1920&q=80",
     author: faraz,
     content: {
-      introduction: "Keyword research remains the foundation of effective SEO. But the landscape has evolved—it's no longer about stuffing exact-match keywords. Here's a modern approach that delivers results.",
+      introduction: "Keyword research remains the foundation of effective SEO. But the landscape has evolved and it's no longer about stuffing exact-match keywords. Here's a modern approach that delivers results.",
       sections: [
         { heading: "Think Topics, Not Just Keywords", content: "Google understands semantic meaning. Instead of targeting individual keywords, build content around topic clusters. Create comprehensive pillar pages supported by related subtopic articles that interlink naturally." },
         { heading: "Analyzing Search Intent", content: "Every search has intent: informational, navigational, commercial, or transactional. Aligning your content with the correct intent is more important than keyword volume. Check what currently ranks to understand what Google thinks the intent is." },
@@ -116,12 +116,12 @@ export const articles: Article[] = [
     content: {
       introduction: "Tailwind CSS has changed how we write styles. But are you using it to its full potential? Here are techniques that will make your Tailwind code cleaner and more maintainable.",
       sections: [
-        { heading: "Design Tokens with CSS Variables", content: "Define your color palette, spacing, and typography as CSS custom properties, then reference them in tailwind.config. This gives you a single source of truth and makes theming trivial—including dark mode." },
+        { heading: "Design Tokens with CSS Variables", content: "Define your color palette, spacing, and typography as CSS custom properties, then reference them in tailwind.config. This gives you a single source of truth and makes theming trivial, including dark mode." },
         { heading: "Component Variants with CVA", content: "Use class-variance-authority (CVA) to create type-safe component variants. This keeps your component APIs clean and your styles organized without sacrificing Tailwind's utility-first approach." },
         { heading: "Responsive Design Patterns", content: "Master the mobile-first approach. Use Tailwind's responsive prefixes strategically: start with the mobile layout, then layer on complexity. The container query plugin adds component-level responsiveness." },
         { heading: "Performance Optimization", content: "Tailwind's JIT compiler generates only the classes you use. But also consider: extracting repeated patterns into @apply directives, using the safelist sparingly, and leveraging content configuration to reduce scan scope." },
       ],
-      conclusion: "Tailwind is more than utility classes—it's a design system framework. Master these patterns and you'll build UIs faster with more consistency.",
+      conclusion: "Tailwind is more than utility classes, it's a design system framework. Master these patterns and you'll build UIs faster with more consistency.",
     },
     tags: ["tailwind", "css", "web development", "design systems"],
   },
@@ -158,12 +158,12 @@ export const articles: Article[] = [
     content: {
       introduction: "The jump from junior to senior developer isn't just about writing better code. It's about thinking differently, communicating effectively, and making decisions that scale. Here's what I've learned on the journey.",
       sections: [
-        { heading: "Master the Fundamentals", content: "Senior developers don't just know frameworks—they understand the underlying principles. Invest in learning data structures, algorithms, design patterns, and system design. These fundamentals transfer across any technology." },
+        { heading: "Master the Fundamentals", content: "Senior developers don't just know frameworks, they understand the underlying principles. Invest in learning data structures, algorithms, design patterns, and system design. These fundamentals transfer across any technology." },
         { heading: "Think in Systems", content: "Juniors think about code. Seniors think about systems. Consider how your code fits into the larger architecture, how it will scale, how it will fail, and how others will maintain it. This systems thinking is the hallmark of seniority." },
         { heading: "Communication Is Code", content: "Writing clean code is communication. So is documentation, PR descriptions, technical proposals, and mentoring juniors. The best senior developers are excellent communicators who can translate complex ideas for any audience." },
-        { heading: "Build Your Brand", content: "Write blog posts, contribute to open source, speak at meetups. This isn't just career advancement—it deepens your own understanding and connects you with a community that accelerates your growth." },
+        { heading: "Build Your Brand", content: "Write blog posts, contribute to open source, speak at meetups. This isn't just career advancement, it deepens your own understanding and connects you with a community that accelerates your growth." },
       ],
-      conclusion: "Seniority isn't measured in years—it's measured in impact. Focus on solving real problems, lifting up your team, and continuously learning. The title will follow.",
+      conclusion: "Seniority isn't measured in years, it's measured in impact. Focus on solving real problems, lifting up your team, and continuously learning. The title will follow.",
     },
     tags: ["career", "developer growth", "soft skills", "mentoring"],
   },
@@ -177,9 +177,9 @@ export const articles: Article[] = [
     image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=1920&q=80",
     author: faraz,
     content: {
-      introduction: "TypeScript has become the standard for serious JavaScript projects. But simply adding types isn't enough—you need patterns and practices that make TypeScript work for your team, not against it.",
+      introduction: "TypeScript has become the standard for serious JavaScript projects. But simply adding types isn't enough, you need patterns and practices that make TypeScript work for your team, not against it.",
       sections: [
-        { heading: "Strict Mode From Day One", content: "Enable strict mode in tsconfig.json from the start. It catches more bugs at compile time and forces better habits. Retrofitting strict mode into a loose codebase is painful—start strict and stay strict." },
+        { heading: "Strict Mode From Day One", content: "Enable strict mode in tsconfig.json from the start. It catches more bugs at compile time and forces better habits. Retrofitting strict mode into a loose codebase is painful, so start strict and stay strict." },
         { heading: "Discriminated Unions Over Enums", content: "Discriminated unions provide better type narrowing and are more idiomatic TypeScript. They work naturally with switch statements and exhaustive checking, making impossible states truly impossible." },
         { heading: "Zod for Runtime Validation", content: "TypeScript types disappear at runtime. For API responses and user input, use Zod to create schemas that validate at runtime and infer TypeScript types. One source of truth for both validation and typing." },
         { heading: "Utility Types Are Your Friend", content: "Master Pick, Omit, Partial, Required, Record, and ReturnType. These built-in utility types let you derive types from existing ones, keeping your type definitions DRY and maintainable." },
@@ -198,14 +198,14 @@ export const articles: Article[] = [
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1920&q=80",
     author: faraz,
     content: {
-      introduction: "Backlinks remain one of Google's top ranking factors. But the game has changed—spammy link building tactics don't work anymore. Here's what actually moves the needle in 2025.",
+      introduction: "Backlinks remain one of Google's top ranking factors. But the game has changed and spammy link building tactics don't work anymore. Here's what actually moves the needle in 2025.",
       sections: [
         { heading: "Create Linkable Assets", content: "The best link building starts with creating content people naturally want to reference: original research, comprehensive guides, interactive tools, and unique data visualizations. Build something worth linking to." },
         { heading: "Digital PR & HARO", content: "Respond to journalist queries on platforms like HARO, Connectively, and Help a B2B Writer. Being quoted as an expert earns high-authority links from news sites and industry publications." },
         { heading: "Broken Link Building", content: "Find broken links on relevant sites using tools like Ahrefs. Create equivalent or better content, then reach out to suggest your resource as a replacement. It's a win-win for both parties." },
         { heading: "Guest Posting Done Right", content: "Guest posting still works when done ethically. Focus on relevant, authoritative sites in your niche. Provide genuine value in your content, and the link becomes a natural byproduct, not the sole purpose." },
       ],
-      conclusion: "The best link building doesn't feel like link building—it feels like creating value. Focus on being genuinely useful and the links will come.",
+      conclusion: "The best link building doesn't feel like link building, it feels like creating value. Focus on being genuinely useful and the links will come.",
     },
     tags: ["seo", "link building", "backlinks", "digital pr"],
   },
@@ -219,15 +219,36 @@ export const articles: Article[] = [
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80",
     author: faraz,
     content: {
-      introduction: "In a market with millions of developers, your personal brand is what sets you apart. It's not about self-promotion—it's about sharing your unique perspective and building genuine connections.",
+      introduction: "In a market with millions of developers, your personal brand is what sets you apart. It's not about self-promotion, it's about sharing your unique perspective and building genuine connections.",
       sections: [
-        { heading: "Start a Blog", content: "Writing about what you learn solidifies your understanding and helps others. You don't need to be an expert—documenting your learning journey is valuable. Consistency matters more than perfection." },
+        { heading: "Start a Blog", content: "Writing about what you learn solidifies your understanding and helps others. You don't need to be an expert, documenting your learning journey is valuable. Consistency matters more than perfection." },
         { heading: "Be Active on GitHub", content: "Your GitHub profile is your developer portfolio. Contribute to open source, maintain your own projects, and write clear READMEs. Show that you can write code that others can understand and use." },
-        { heading: "Network Authentically", content: "Attend meetups, join Discord communities, engage on Twitter/X. Help others without expecting anything in return. The developer community is generous—when you give, opportunities come back naturally." },
+        { heading: "Network Authentically", content: "Attend meetups, join Discord communities, engage on Twitter/X. Help others without expecting anything in return. The developer community is generous, and when you give, opportunities come back naturally." },
         { heading: "Specialize and Own It", content: "Being 'a developer' is generic. Being 'the developer who writes about SEO-optimized React apps' is memorable. Find your niche at the intersection of your skills and interests, and own it." },
       ],
       conclusion: "Your personal brand is built one genuine interaction at a time. Share what you know, help others, and be consistent. The career opportunities will follow.",
     },
     tags: ["career", "personal branding", "networking", "developer"],
+  },
+  {
+    id: "010",
+    title: "My Honest Experience Learning Next.js as a Student",
+    subtitle: "What I wish someone told me before diving into Next.js",
+    category: "Web Dev",
+    date: "Feb 15, 2026",
+    readTime: "6 min",
+    image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=1920&q=80",
+    author: faraz,
+    content: {
+      introduction: "I recently started learning Next.js alongside my studies and honestly, it was confusing at first. Coming from plain React, the whole file-based routing and server components thing felt like a different world. But after a few weeks of building stuff, things started clicking. Here's what I learned so you don't have to struggle like I did.",
+      sections: [
+        { heading: "Why I Picked Next.js Over Other Frameworks", content: "As a student, I wanted something that would look good on my resume and actually help me build real projects. Next.js kept popping up in job listings and developer communities. Plus, it handles routing, SSR, and API routes out of the box, which means less setup time and more building time. For someone juggling coursework and side projects, that's a huge win." },
+        { heading: "The App Router Confused Me at First", content: "When I started, the App Router with its layout.tsx and page.tsx files felt weird. I kept asking myself, why can't I just use React Router? But once I understood that each folder becomes a route automatically, it actually saved me a ton of boilerplate. Nested layouts are a game changer for dashboards and multi-page apps." },
+        { heading: "Server Components vs Client Components", content: "This was the biggest mental shift for me. By default, components in Next.js are server components, meaning they run on the server and send HTML to the browser. If you need interactivity like useState or onClick, you add 'use client' at the top. It took me a few broken builds to get this, but now it makes total sense for performance." },
+        { heading: "Building My First Full Project", content: "I built a simple portfolio site with a blog section using Next.js and it was surprisingly smooth. The Image component optimizes images automatically, the Link component handles prefetching, and deploying to Vercel was literally one click. For a student project, it felt incredibly professional." },
+      ],
+      conclusion: "If you're a student thinking about learning Next.js, just go for it. Yes, there's a learning curve, but it's totally worth it. Start with a small project, don't overthink the theory, and build your way to understanding. That's how it clicked for me.",
+    },
+    tags: ["nextjs", "react", "web development", "student"],
   },
 ];
