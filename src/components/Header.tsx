@@ -120,7 +120,7 @@ const Header = () => {
                   asChild
                 >
                   <a href="/contact" onClick={() => setIsMenuOpen(false)}>
-                    Hire Me
+                    Let's Connect
                   </a>
                 </Button>
               </div>
