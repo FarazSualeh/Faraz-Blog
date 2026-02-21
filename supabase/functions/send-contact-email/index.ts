@@ -1,3 +1,6 @@
+// @ts-nocheck
+// This is a Deno runtime file, not a Node.js file
+// TypeScript checking is disabled here as it uses Deno-specific APIs
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
@@ -19,24 +22,48 @@ serve(async (req) => {
     }
 
     const resend = new Resend(RESEND_API_KEY);
-    const { name, email, subject, message } = await req.json();
+    const body = await req.json();
+    const { name, email, subject, message } = body;
 
+    // Validate required fields
     if (!name || !email || !subject || !message) {
-      throw new Error("Missing required fields");
+      return new Response(
+        JSON.stringify({ success: false, error: "Missing required fields" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return new Response(
+        JSON.stringify({ success: false, error: "Invalid email format" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // HTML escape function to prevent XSS
+    const escapeHtml = (text: string) => {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    };
 
     const { error } = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
       to: ["farazsualeh75@gmail.com"],
-      subject: `[Contact] ${subject}`,
+      subject: `[Contact] ${escapeHtml(subject)}`,
       replyTo: email,
       html: `
         <h2>New Contact Form Message</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
         <hr />
-        <p>${message.replace(/\n/g, "<br />")}</p>
+        <p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>
       `,
     });
 

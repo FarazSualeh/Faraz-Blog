@@ -28,7 +28,6 @@ A modern, SEO-optimized personal blog website built with React and TypeScript. T
 - **Notifications**: Sonner (toast notifications)
 - **Backend**: Supabase (for newsletter subscriptions)
 - **Typography**: Tailwind Typography plugin
-- **Resend**: A
 
 ## 📋 Prerequisites
 
@@ -55,11 +54,12 @@ Before you begin, ensure you have the following installed:
    bun install
    ```
 
-3. **Set up environment variables** (if using Supabase)
+3. **Set up environment variables** (Supabase + email sending)
    Create a `.env` file in the root directory:
    ```env
    VITE_SUPABASE_URL=your_supabase_url
    VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   RESEND_API_KEY=your_resend_api_key  # used by Supabase function send-contact-email
    ```
 
 ## 🚀 Development
