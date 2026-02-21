@@ -56,13 +56,25 @@ const Index = () => {
           </div>
 
           {displayedArticles.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {displayedArticles.map((article, index) => (
-                <div key={article.id} className={`animate-slide-up stagger-${Math.min(index + 1, 6)}`}>
-                  <ArticleCard {...article} size="small" />
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {displayedArticles.map((article, index) => (
+                  <div key={article.id} className={`animate-slide-up stagger-${Math.min(index + 1, 6)}`}>
+                    <ArticleCard {...article} size="small" />
+                  </div>
+                ))}
+              </div>
+              {!isFiltering && (
+                <div className="text-center mt-10">
+                  <a
+                    href="/articles"
+                    className="inline-flex items-center gap-1 text-base font-medium text-accent hover:underline transition-colors"
+                  >
+                    View all 🡢
+                  </a>
                 </div>
-              ))}
-            </div>
+              )}
+            </>
           ) : (
             <div className="text-center py-16 animate-fade-in">
               <p className="text-lg text-muted-foreground">No articles found matching your search.</p>

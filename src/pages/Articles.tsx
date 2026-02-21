@@ -3,9 +3,7 @@ import ArticleCard from "@/components/ArticleCard";
 import { articles } from "@/data/articles";
 import { ArrowLeft } from "lucide-react";
 
-const Career = () => {
-  const careerArticles = articles.filter(article => article.category.toLowerCase() === "career");
-
+const Articles = () => {
   return (
     <div className="min-h-screen bg-background animate-fade-in">
       <Header />
@@ -15,14 +13,14 @@ const Career = () => {
           Back to home
         </a>
         <div className="mb-16 text-center space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-slide-down">Career</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-slide-down">All Articles</h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-slide-up stagger-1">
-            Career advice, personal branding, and growth strategies for developers at every level.
+            Browse the complete collection of articles on web development, SEO, tech, and career growth.
           </p>
         </div>
         <section>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {careerArticles.map((article, index) => (
+            {articles.map((article, index) => (
               <div key={article.id} className={`animate-slide-up stagger-${Math.min(index + 2, 6)}`}>
                 <ArticleCard {...article} />
               </div>
@@ -34,4 +32,4 @@ const Career = () => {
   );
 };
 
-export default Career;
+export default Articles;

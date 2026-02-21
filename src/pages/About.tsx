@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import { Mail, Github, Linkedin, Instagram } from "lucide-react";
+import { Mail, Github, Linkedin, Instagram, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const About = () => {
@@ -7,6 +7,10 @@ const About = () => {
     <div className="min-h-screen bg-background animate-fade-in">
       <Header />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <a href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-8 block">
+          <ArrowLeft className="w-4 h-4" />
+          Back to home
+        </a>
         <div className="mb-10 sm:mb-16 text-center space-y-4 sm:space-y-6">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-slide-down">
             About Me

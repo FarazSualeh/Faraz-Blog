@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import { Mail, MapPin, Github, Linkedin, Instagram } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, Instagram, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
@@ -33,7 +33,6 @@ const Contact = () => {
 
     setLoading(true);
     try {
-      // Save to database
       const validData = result.data;
       const { error: dbError } = await supabase
         .from("contact_messages")
@@ -43,7 +42,6 @@ const Contact = () => {
 
       if (dbError) throw dbError;
 
-      // Send email notification
       const { error: fnError } = await supabase.functions.invoke("send-contact-email", {
         body: result.data,
       });
@@ -76,6 +74,10 @@ const Contact = () => {
     <div className="min-h-screen bg-background animate-fade-in">
       <Header />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <a href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-8 block">
+          <ArrowLeft className="w-4 h-4" />
+          Back to home
+        </a>
         <div className="mb-10 sm:mb-16 text-center space-y-4 sm:space-y-6">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-slide-down">
             Get in Touch
