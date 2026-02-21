@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import { ArrowLeft } from "lucide-react";
 
 const Privacy = () => {
   return (
@@ -6,7 +7,15 @@ const Privacy = () => {
       <Header />
       
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <a
+          href="/"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-8 block"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to home
+        </a>
         <div className="mb-12 space-y-4">
+
           <h1 className="text-4xl md:text-5xl font-bold leading-tight animate-slide-down">
             Privacy Policy
           </h1>
