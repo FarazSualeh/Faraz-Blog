@@ -5,9 +5,9 @@ import thumb004 from "@/assets/thumbnails/thumb-004.jpg";
 import thumb005 from "@/assets/thumbnails/thumb-005.jpg";
 import thumb006 from "@/assets/thumbnails/thumb-006.jpg";
 import thumb007 from "@/assets/thumbnails/thumb-007.jpg";
-import thumb008 from "@/assets/thumbnails/thumb-008.jpg";
+import thumb008 from "@/assets/thumbnails/link-building.png";
 import thumb009 from "@/assets/thumbnails/thumb-009.jpg";
-import thumb010 from "@/assets/thumbnails/thumb-010.jpg";
+import thumb010 from "@/assets/thumbnails/nextjs-learning.png";
 
 export interface Article {
   id: string;
