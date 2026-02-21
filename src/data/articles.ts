@@ -2,7 +2,7 @@ import thumb001 from "@/assets/thumbnails/thumb-001.jpg";
 import thumb002 from "@/assets/thumbnails/thumb-002.jpg";
 import thumb003 from "@/assets/thumbnails/thumb-003.jpg";
 import thumb004 from "@/assets/thumbnails/thumb-004.jpg";
-import thumb005 from "@/assets/thumbnails/thumb-005.jpg";
+import thumb005 from "@/assets/thumbnails/thumb-005.png";
 import thumb006 from "@/assets/thumbnails/thumb-006.jpg";
 import thumb007 from "@/assets/thumbnails/thumb-007.jpg";
 import thumb008 from "@/assets/thumbnails/link-building.png";
@@ -122,18 +122,30 @@ export const articles: Article[] = [
     subtitle: "Level up your Tailwind workflow with these pro techniques",
     category: "Web Dev",
     date: "Dec 20, 2025",
-    readTime: "5 min",
+    readTime: "6 min",
     image: thumb004,
     author: faraz,
     content: {
-      introduction: "Tailwind CSS has changed how we write styles. But are you using it to its full potential? Here are techniques that will make your Tailwind code cleaner and more maintainable.",
+      introduction: "Tailwind CSS has changed how we write styles by promoting a utility-first workflow. But many developers only scratch the surface of what it can do. Beyond simple class stacking, Tailwind can power scalable design systems, cleaner component APIs, and highly optimized builds. Here are practical techniques that will make your Tailwind code cleaner, more maintainable, and production-ready.",
       sections: [
-        { heading: "Design Tokens with CSS Variables", content: "Define your color palette, spacing, and typography as CSS custom properties, then reference them in tailwind.config. This gives you a single source of truth and makes theming trivial, including dark mode." },
-        { heading: "Component Variants with CVA", content: "Use class-variance-authority (CVA) to create type-safe component variants. This keeps your component APIs clean and your styles organized without sacrificing Tailwind's utility-first approach." },
-        { heading: "Responsive Design Patterns", content: "Master the mobile-first approach. Use Tailwind's responsive prefixes strategically: start with the mobile layout, then layer on complexity. The container query plugin adds component-level responsiveness." },
-        { heading: "Performance Optimization", content: "Tailwind's JIT compiler generates only the classes you use. But also consider: extracting repeated patterns into @apply directives, using the safelist sparingly, and leveraging content configuration to reduce scan scope." },
+        {
+          heading: "Design Tokens with CSS Variables",
+          content: "Instead of hardcoding colors and spacing directly in your components, define them as CSS custom properties and reference them inside tailwind.config. This creates a centralized design token system for colors, typography, spacing, and border radius. With this setup, switching themes or enabling dark mode becomes significantly easier because you only update variables instead of hunting through components. It also ensures visual consistency across your entire application."
+        },
+        {
+          heading: "Component Variants with CVA",
+          content: "As your project grows, managing conditional classes can become messy. Using class-variance-authority (CVA) allows you to define structured, type-safe variants for components such as buttons, badges, or cards. You can define size, intent, and state variants in one place while keeping the component interface clean. This approach combines the flexibility of Tailwind with maintainable architecture, especially in larger React or Next.js projects."
+        },
+        {
+          heading: "Responsive Design Patterns",
+          content: "Tailwind follows a mobile-first philosophy, and mastering it makes layouts much more predictable. Start by building the base mobile layout, then progressively enhance using sm, md, lg, and xl breakpoints. Avoid overusing breakpoints and instead focus on layout intent. For advanced use cases, the container query plugin enables component-level responsiveness, which is powerful for reusable UI components in design systems."
+        },
+        {
+          heading: "Performance Optimization",
+          content: "Tailwind’s JIT compiler generates only the classes you use, which keeps builds lightweight. However, performance can still be improved by extracting repeated utility patterns into reusable components, minimizing unnecessary dynamic class generation, and configuring the content paths carefully to reduce scan scope. Use the safelist only when necessary and avoid overly complex string interpolations that may break class detection."
+        },
       ],
-      conclusion: "Tailwind is more than utility classes, it's a design system framework. Master these patterns and you'll build UIs faster with more consistency.",
+      conclusion: "Tailwind is more than just a collection of utility classes. When used strategically, it becomes the foundation of a scalable design system. By leveraging design tokens, structured variants, responsive best practices, and performance optimizations, you can build interfaces faster while maintaining consistency and long-term maintainability.",
     },
     tags: ["tailwind", "css", "web development", "design systems"],
   },
@@ -143,7 +155,7 @@ export const articles: Article[] = [
     subtitle: "Everything you need to check for a healthy, crawlable site",
     category: "SEO",
     date: "Dec 5, 2025",
-    readTime: "10 min",
+    readTime: "4 min",
     image: thumb005,
     author: faraz,
     content: {

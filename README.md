@@ -1,73 +1,225 @@
-# Welcome to your Lovable project
+# Faraz Blog
 
-## Project info
+A modern, SEO-optimized personal blog website built with React and TypeScript. This blog features articles on web development, SEO strategies, technology, and career growth.
 
-**URL**: https://lovable.dev/projects/7410f81b-8218-4f2d-bb32-1ba1f84eabb2
+## 🚀 Features
 
-## How can I edit this code?
+- **Article Management**: Browse and read articles organized by categories (Web Dev, SEO, Tech, Career)
+- **Search Functionality**: Search articles by title, subtitle, category, or tags
+- **Category Filtering**: Filter articles by specific categories
+- **SEO Optimized**: Built with SEO best practices including structured data (JSON-LD), meta tags, and semantic HTML
+- **Responsive Design**: Fully responsive design that works on all devices
+- **Newsletter Subscription**: Newsletter signup form integrated with Supabase
+- **Social Sharing**: Share articles on LinkedIn and copy article links
+- **Dark Mode Support**: Theme support using next-themes
+- **Related Articles**: Display related articles on article pages
+- **Modern UI**: Beautiful UI built with shadcn/ui components and Tailwind CSS
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Framework**: React 18.3 with TypeScript
+- **Build Tool**: Vite 5.4
+- **Styling**: Tailwind CSS 3.4 with custom animations
+- **UI Components**: shadcn/ui (Radix UI primitives)
+- **Routing**: React Router DOM 6.30
+- **State Management**: TanStack Query (React Query) 5.83
+- **Form Handling**: React Hook Form 7.61 with Zod validation
+- **Icons**: Lucide React
+- **Notifications**: Sonner (toast notifications)
+- **Backend**: Supabase (for newsletter subscriptions)
+- **Typography**: Tailwind Typography plugin
+- **Resend**: A
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7410f81b-8218-4f2d-bb32-1ba1f84eabb2) and start prompting.
+## 📋 Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+Before you begin, ensure you have the following installed:
 
-**Use your preferred IDE**
+- **Node.js** (v18 or higher recommended)
+- **npm** or **yarn** or **bun** (package manager)
+- **Git** (for version control)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🏗️ Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd Faraz-Blog
+   ```
 
-Follow these steps:
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   bun install
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. **Set up environment variables** (if using Supabase)
+   Create a `.env` file in the root directory:
+   ```env
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🚀 Development
 
-# Step 3: Install the necessary dependencies.
-npm i
+Start the development server:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080` (or the port specified in `vite.config.ts`).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📦 Build
 
-**Use GitHub Codespaces**
+Build the project for production:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+# or
+yarn build
+# or
+bun build
+```
 
-## What technologies are used for this project?
+The production build will be created in the `dist` directory.
 
-This project is built with:
+### Development Build
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Build with development mode:
 
-## How can I deploy this project?
+```bash
+npm run build:dev
+```
 
-Simply open [Lovable](https://lovable.dev/projects/7410f81b-8218-4f2d-bb32-1ba1f84eabb2) and click on Share -> Publish.
+### Preview Production Build
 
-## Can I connect a custom domain to my Lovable project?
+Preview the production build locally:
 
-Yes, you can!
+```bash
+npm run preview
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🧪 Linting
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Run ESLint to check for code quality issues:
+
+```bash
+npm run lint
+```
+
+## 📁 Project Structure
+
+```
+Faraz-Blog/
+├── public/                 # Static assets
+├── src/
+│   ├── assets/            # Images and other assets
+│   ├── components/        # React components
+│   │   ├── ui/           # shadcn/ui components
+│   │   ├── ArticleCard.tsx
+│   │   ├── Header.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── IntroSection.tsx
+│   │   ├── NewsletterForm.tsx
+│   │   ├── SearchBar.tsx
+│   │   └── SEOHead.tsx
+│   ├── data/             # Data files (articles, etc.)
+│   ├── hooks/            # Custom React hooks
+│   ├── integrations/     # Third-party integrations
+│   ├── lib/              # Utility functions
+│   ├── pages/            # Page components
+│   │   ├── About.tsx
+│   │   ├── Article.tsx
+│   │   ├── Articles.tsx
+│   │   ├── Career.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Index.tsx
+│   │   ├── NotFound.tsx
+│   │   ├── Privacy.tsx
+│   │   ├── Seo.tsx
+│   │   ├── Tech.tsx
+│   │   ├── Terms.tsx
+│   │   └── WebDev.tsx
+│   ├── App.tsx           # Main App component
+│   ├── main.tsx          # Application entry point
+│   └── index.css         # Global styles
+├── supabase/             # Supabase configuration
+├── index.html            # HTML template
+├── package.json          # Dependencies and scripts
+├── tailwind.config.ts    # Tailwind CSS configuration
+├── tsconfig.json         # TypeScript configuration
+└── vite.config.ts        # Vite configuration
+```
+
+## 🎨 Customization
+
+### Adding New Articles
+
+Articles are managed in `src/data/articles.ts`. Add new articles by following the existing article structure.
+
+### Styling
+
+The project uses Tailwind CSS with custom configuration in `tailwind.config.ts`. Custom colors, animations, and utilities can be added there.
+
+### Components
+
+UI components are built with shadcn/ui. To add new components:
+
+```bash
+npx shadcn-ui@latest add [component-name]
+```
+
+## 🌐 Routes
+
+- `/` - Homepage with featured articles
+- `/article/:id` - Individual article page
+- `/articles` - All articles listing
+- `/web-dev` - Web Development category page
+- `/seo` - SEO category page
+- `/tech` - Technology category page
+- `/career` - Career category page
+- `/about` - About page
+- `/contact` - Contact page
+- `/privacy` - Privacy policy
+- `/terms` - Terms of service
+- `*` - 404 Not Found page
+
+## 🔧 Configuration
+
+### Vite Configuration
+
+The Vite configuration is in `vite.config.ts`. The development server runs on port 8080 by default.
+
+### TypeScript Configuration
+
+TypeScript settings are configured in `tsconfig.json` and `tsconfig.app.json`.
+
+### Path Aliases
+
+The project uses `@/` as an alias for the `src/` directory, configured in `vite.config.ts`.
+
+## 📝 Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build in development mode
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🤝 Contributing
+
+This is a personal blog project. If you'd like to contribute or report issues, please feel free to open an issue or submit a pull request.
+
+## 📄 License
+
+This project is private and personal. All content and code are the intellectual property of Faraz Sualeh.
+
+## 👤 Author
+
+**Faraz Sualeh**
+
+- Website: [farazsualeh.com](https://farazsualeh.com)
+- Blog: Practical articles on web development, SEO, and career growth
