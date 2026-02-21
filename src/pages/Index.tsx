@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import IntroSection from "@/components/IntroSection";
 import SearchBar from "@/components/SearchBar";
 import { articles } from "@/data/articles";
+import NewsletterForm from "@/components/NewsletterForm";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -77,16 +78,7 @@ const Index = () => {
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
               Get my latest articles on web development and SEO delivered straight to your inbox.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-6 py-3.5 sm:py-4 rounded-full border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring transition-all text-sm"
-              />
-              <button className="px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 hover:scale-105 transition-all text-sm">
-                Subscribe
-              </button>
-            </div>
+            <NewsletterForm />
           </div>
         </section>
       </main>

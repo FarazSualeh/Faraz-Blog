@@ -2,6 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import ArticleCard from "@/components/ArticleCard";
 import { getArticleById, getRelatedArticles } from "@/data/articles";
+import NewsletterForm from "@/components/NewsletterForm";
 import { Facebook, Twitter, Linkedin, Link2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -204,16 +205,7 @@ const Article = () => {
             <p className="text-muted-foreground mb-6">
               Subscribe to receive more insights like this directly in your inbox.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-4 py-3 rounded-full border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-              />
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
-                Subscribe
-              </Button>
-            </div>
+            <NewsletterForm variant="article" />
           </div>
         </article>
 
