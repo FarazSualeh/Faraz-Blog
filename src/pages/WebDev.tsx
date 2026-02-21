@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import ArticleCard from "@/components/ArticleCard";
 import { articles } from "@/data/articles";
+import { ArrowLeft } from "lucide-react";
 
 const WebDev = () => {
   const webDevArticles = articles.filter(article => article.category.toLowerCase() === "web dev");
@@ -9,6 +10,10 @@ const WebDev = () => {
     <div className="min-h-screen bg-background animate-fade-in">
       <Header />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <a href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-8 block">
+          <ArrowLeft className="w-4 h-4" />
+          Back to home
+        </a>
         <div className="mb-16 text-center space-y-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-slide-down">Web Development</h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-slide-up stagger-1">

@@ -8,6 +8,7 @@ import thumb007 from "@/assets/thumbnails/thumb-007.jpg";
 import thumb008 from "@/assets/thumbnails/link-building.png";
 import thumb009 from "@/assets/thumbnails/thumb-009.jpg";
 import thumb010 from "@/assets/thumbnails/nextjs-learning.png";
+import thumb011 from "@/assets/thumbnails/ai-prompt-engineering.png";
 
 export interface Article {
   id: string;
@@ -261,5 +262,26 @@ export const articles: Article[] = [
       conclusion: "If you're a student thinking about learning Next.js, just go for it. Yes, there's a learning curve, but it's totally worth it. Start with a small project, don't overthink the theory, and build your way to understanding. That's how it clicked for me.",
     },
     tags: ["nextjs", "react", "web development", "student"],
+  },
+  {
+    id: "011",
+    title: "Building AI Tools Using Prompt Engineering: A Student's Approach",
+    subtitle: "How I used prompt engineering to build useful AI-powered tools as a student",
+    category: "Tech",
+    date: "Feb 20, 2026",
+    readTime: "7 min",
+    image: thumb011,
+    author: faraz,
+    content: {
+      introduction: "AI is everywhere right now, and as a student, I wanted to do more than just use ChatGPT for homework. I started experimenting with prompt engineering to build actual tools, and it turned out to be one of the most valuable skills I've picked up. Here's how I approached it.",
+      sections: [
+        { heading: "What Is Prompt Engineering, Really?", content: "Prompt engineering is the art of crafting inputs that get the best outputs from AI models. It's not just about asking questions — it's about structuring your prompts with context, constraints, and examples so the AI gives you exactly what you need. Think of it as programming in natural language." },
+        { heading: "My First AI Tool: A Blog Outline Generator", content: "I built a simple tool that takes a topic and generates a structured blog outline. The key was using system prompts to set the AI's role, providing few-shot examples of good outlines, and iterating on the prompt until the output was consistently useful. No fancy framework needed — just well-crafted prompts." },
+        { heading: "Lessons Learned from Trial and Error", content: "The biggest lesson? Be specific. Vague prompts give vague results. I learned to include format instructions, word limits, and tone guidelines. Chain-of-thought prompting helped for complex tasks, and breaking big problems into smaller prompt steps made everything more reliable." },
+        { heading: "Tools and Resources That Helped", content: "I used OpenAI's playground for testing, read through prompting guides from Anthropic and OpenAI, and joined communities where people share prompt techniques. The best way to learn is to build something real and iterate on your prompts based on actual output quality." },
+      ],
+      conclusion: "You don't need to be a machine learning engineer to build with AI. Prompt engineering is accessible to anyone who can write clearly and think logically. Start small, build something useful, and refine from there. It's a skill that will only become more valuable.",
+    },
+    tags: ["ai", "prompt engineering", "tools", "student"],
   },
 ];
