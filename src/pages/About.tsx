@@ -24,12 +24,12 @@ const About = () => {
             an impactful online presence.
           </p>
           <p>
-            My tech stack includes React, TypeScript, Tailwind CSS, and Next.js for development, and I use tools like
-            Ahrefs, Google Search Console, and Screaming Frog for SEO audits and strategy.
+            My tech stack includes React, TypeScript, Tailwind CSS, Next.js, etc for development, and I use tools like
+            SEMrush, Google Search Console, and GA4 for SEO audits and strategy.
           </p>
           <p>
-            Through this blog, I share practical tutorials, SEO insights, and career advice for developers. Everything I
-            write comes from real experience, no fluff, just actionable knowledge.
+            Through this blog, I share practical tutorials, SEO insights, and knowledge for student developers like me.
+            Everything I write comes from real experience, no fluff, just actionable knowledge.
           </p>
         </section>
 
