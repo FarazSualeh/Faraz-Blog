@@ -19,18 +19,17 @@ const About = () => {
         <section className="mb-10 sm:mb-16 space-y-4 sm:space-y-6 text-muted-foreground animate-slide-up stagger-2">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6">Hey, I'm Faraz 👋</h2>
           <p>
-            I'm a Web Developer and SEO Specialist who believes great websites should be both 
-            beautiful and discoverable. I combine modern frontend development with data-driven 
-            SEO strategies to help businesses build an impactful online presence.
+            I'm a Web Developer and SEO Specialist who believes great websites should be both beautiful and
+            discoverable. I combine modern frontend development with data-driven SEO strategies to help businesses build
+            an impactful online presence.
           </p>
           <p>
-            My tech stack includes React, TypeScript, Tailwind CSS, and Next.js for development, 
-            and I use tools like Ahrefs, Google Search Console, and Screaming Frog for SEO audits 
-            and strategy.
+            My tech stack includes React, TypeScript, Tailwind CSS, and Next.js for development, and I use tools like
+            Ahrefs, Google Search Console, and Screaming Frog for SEO audits and strategy.
           </p>
           <p>
-            Through this blog, I share practical tutorials, SEO insights, and career advice for 
-            developers. Everything I write comes from real experience, no fluff, just actionable knowledge.
+            Through this blog, I share practical tutorials, SEO insights, and career advice for developers. Everything I
+            write comes from real experience, no fluff, just actionable knowledge.
           </p>
         </section>
 
@@ -38,10 +37,22 @@ const About = () => {
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">What I Do</h2>
           <div className="space-y-4 text-muted-foreground">
             <ul className="space-y-3 ml-6">
-              <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>Build responsive, performant web applications with React & TypeScript</span></li>
-              <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>Optimize websites for search engines: technical SEO, on-page, and link building</span></li>
-              <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>Improve Core Web Vitals and page performance</span></li>
-              <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>Write about web development, SEO, and career growth</span></li>
+              <li className="flex items-start">
+                <span className="mr-3 mt-1">•</span>
+                <span>Build responsive, performant websites and web apps with NextJS & TypeScript</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-3 mt-1">•</span>
+                <span>Optimize websites for search engines: On-page SEO, Technical SEO and Backlinks</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-3 mt-1">•</span>
+                <span>Improve Core Web Vitals and page performance</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-3 mt-1">•</span>
+                <span>Write about web development, SEO, and career growth</span>
+              </li>
             </ul>
           </div>
         </section>
@@ -51,19 +62,23 @@ const About = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div className="p-5 sm:p-6 rounded-xl bg-muted">
               <h3 className="text-lg sm:text-xl font-semibold mb-3">Development</h3>
-              <p className="text-muted-foreground text-sm sm:text-base">React, TypeScript, Next.js, Tailwind CSS, Node.js, Vite, Git</p>
+              <p className="text-muted-foreground text-sm sm:text-base">
+                Next.js, React, TypeScript, Tailwind CSS, Bootstrap, Node.js, Vite, SQL
+              </p>
             </div>
             <div className="p-5 sm:p-6 rounded-xl bg-muted">
               <h3 className="text-lg sm:text-xl font-semibold mb-3">SEO & Analytics</h3>
-              <p className="text-muted-foreground text-sm sm:text-base">Google Search Console, Ahrefs, SEMrush, Screaming Frog, GA4</p>
+              <p className="text-muted-foreground text-sm sm:text-base">Google Search Console, Ahrefs, SEMrush, GA4</p>
             </div>
             <div className="p-5 sm:p-6 rounded-xl bg-muted">
               <h3 className="text-lg sm:text-xl font-semibold mb-3">Performance</h3>
-              <p className="text-muted-foreground text-sm sm:text-base">Core Web Vitals, Lighthouse, PageSpeed Insights, WebPageTest</p>
+              <p className="text-muted-foreground text-sm sm:text-base">
+                Core Web Vitals, Lighthouse, PageSpeed Insights, WebPageTest
+              </p>
             </div>
             <div className="p-5 sm:p-6 rounded-xl bg-muted">
               <h3 className="text-lg sm:text-xl font-semibold mb-3">Other</h3>
-              <p className="text-muted-foreground text-sm sm:text-base">Technical Writing, Content Strategy, UI/UX Design, Figma</p>
+              <p className="text-muted-foreground text-sm sm:text-base">Canva, Technical Writing, UI/UX Design</p>
             </div>
           </div>
         </section>
@@ -74,12 +89,39 @@ const About = () => {
             Need a developer who understands SEO? Let's chat about your project.
           </p>
           <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
-            <a href="https://github.com/farazsualeh" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95" aria-label="GitHub"><Github className="w-4 h-4 sm:w-5 sm:h-5" /></a>
-            <a href="https://linkedin.com/in/faraz-sualeh" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95" aria-label="LinkedIn"><Linkedin className="w-4 h-4 sm:w-5 sm:h-5" /></a>
-            <a href="https://instagram.com/editsbyfaraz" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95" aria-label="Instagram"><Instagram className="w-4 h-4 sm:w-5 sm:h-5" /></a>
+            <a
+              href="https://github.com/farazsualeh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95"
+              aria-label="GitHub"
+            >
+              <Github className="w-4 h-4 sm:w-5 sm:h-5" />
+            </a>
+            <a
+              href="https://linkedin.com/in/faraz-sualeh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
+            </a>
+            <a
+              href="https://instagram.com/editsbyfaraz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
+            </a>
           </div>
           <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8" asChild>
-            <a href="/contact"><Mail className="mr-2 h-4 w-4" />Get in Touch</a>
+            <a href="/contact">
+              <Mail className="mr-2 h-4 w-4" />
+              Get in Touch
+            </a>
           </Button>
         </section>
       </main>
