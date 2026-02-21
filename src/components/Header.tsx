@@ -16,7 +16,9 @@ const Header = () => {
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isMenuOpen]);
 
   const toggleTheme = () => {
@@ -78,8 +80,11 @@ const Header = () => {
               {isDark ? <Sun className="h-4 w-4 sm:h-5 sm:w-5" /> : <Moon className="h-4 w-4 sm:h-5 sm:w-5" />}
             </button>
 
-            <Button className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-2 hover:scale-105 transition-all" asChild>
-              <a href="/contact">Hire Me</a>
+            <Button
+              className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-2 hover:scale-105 transition-all"
+              asChild
+            >
+              <a href="/contact">Let's Connect</a>
             </Button>
 
             <button
@@ -110,8 +115,13 @@ const Header = () => {
                 </a>
               ))}
               <div className="mt-4 pt-4 border-t border-border">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-full py-6 text-base font-medium" asChild>
-                  <a href="/contact" onClick={() => setIsMenuOpen(false)}>Hire Me</a>
+                <Button
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-full py-6 text-base font-medium"
+                  asChild
+                >
+                  <a href="/contact" onClick={() => setIsMenuOpen(false)}>
+                    Hire Me
+                  </a>
                 </Button>
               </div>
             </nav>
