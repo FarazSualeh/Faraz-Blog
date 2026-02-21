@@ -223,5 +223,5 @@ This project is private and personal. All content and code are the intellectual 
 
 **Faraz Sualeh**
 
-- Website: [farazsualeh.com](https://farazsualeh.com)
+- Website: [farazlabs.lovable.app](https://farazlabs.lovable.app)
 - Blog: Practical articles on web development, SEO, and career growth

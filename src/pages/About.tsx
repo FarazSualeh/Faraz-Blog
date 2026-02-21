@@ -8,7 +8,7 @@ const About = () => {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Faraz Sualeh",
-    url: "https://farazsualeh.com",
+    url: "https://farazlabs.lovable.app",
     jobTitle: "Web Developer & SEO Specialist",
     sameAs: [
       "https://github.com/farazsualeh",
