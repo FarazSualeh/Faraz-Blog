@@ -41,7 +41,8 @@ serve(async (req) => {
     });
 
     if (error) {
-      throw error;
+      console.error("Resend API error:", JSON.stringify(error));
+      throw new Error(error.message || JSON.stringify(error));
     }
 
     return new Response(JSON.stringify({ success: true }), {
