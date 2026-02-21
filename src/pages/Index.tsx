@@ -6,6 +6,7 @@ import IntroSection from "@/components/IntroSection";
 import SearchBar from "@/components/SearchBar";
 import { articles } from "@/data/articles";
 import NewsletterForm from "@/components/NewsletterForm";
+import SEOHead from "@/components/SEOHead";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -37,8 +38,27 @@ const Index = () => {
 
   const displayedArticles = isFiltering ? filteredArticles : articles.slice(0, 6);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Faraz Sualeh",
+    url: "https://farazsualeh.com",
+    description: "Practical articles on web development, SEO strategies, and career growth for developers.",
+    author: {
+      "@type": "Person",
+      name: "Faraz Sualeh",
+      url: "https://farazsualeh.com/about",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-background animate-fade-in">
+      <SEOHead
+        title="Faraz Sualeh - Web Developer & SEO Specialist"
+        description="Faraz Sualeh shares practical articles on web development, SEO strategies, and career growth for developers."
+        canonicalPath="/"
+        jsonLd={jsonLd}
+      />
       <Header />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <HeroSection />

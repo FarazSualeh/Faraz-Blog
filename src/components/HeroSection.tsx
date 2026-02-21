@@ -10,8 +10,11 @@ const HeroSection = () => {
         <div className="relative aspect-[4/3] md:aspect-auto rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden animate-scale-in">
           <img
             src={heroLaptop}
-            alt="Laptop with code editor"
+            alt="Faraz Sualeh's development workspace with code editor open"
             className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
+            loading="eager"
+            width="800"
+            height="600"
           />
         </div>
 

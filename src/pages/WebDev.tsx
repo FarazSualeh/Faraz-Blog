@@ -2,12 +2,18 @@ import Header from "@/components/Header";
 import ArticleCard from "@/components/ArticleCard";
 import { articles } from "@/data/articles";
 import { ArrowLeft } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const WebDev = () => {
   const webDevArticles = articles.filter(article => article.category.toLowerCase() === "web dev");
 
   return (
     <div className="min-h-screen bg-background animate-fade-in">
+      <SEOHead
+        title="Web Development Articles"
+        description="Tutorials, tips, and deep dives into React, TypeScript, Tailwind CSS, and modern frontend development by Faraz Sualeh."
+        canonicalPath="/web-dev"
+      />
       <Header />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <a href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-8 block">

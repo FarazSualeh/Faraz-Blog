@@ -2,12 +2,18 @@ import Header from "@/components/Header";
 import ArticleCard from "@/components/ArticleCard";
 import { articles } from "@/data/articles";
 import { ArrowLeft } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const Career = () => {
   const careerArticles = articles.filter(article => article.category.toLowerCase() === "career");
 
   return (
     <div className="min-h-screen bg-background animate-fade-in">
+      <SEOHead
+        title="Career Growth for Developers"
+        description="Career advice, personal branding, and growth strategies for developers at every level by Faraz Sualeh."
+        canonicalPath="/career"
+      />
       <Header />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <a href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-8 block">
