@@ -2,15 +2,68 @@ import Header from "@/components/Header";
 import { Mail, MapPin, Github, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  email: z.string().trim().email("Please enter a valid email").max(255),
+  subject: z.string().trim().min(1, "Subject is required").max(200),
+  message: z.string().trim().min(1, "Message is required").max(2000),
+});
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! I'll get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      toast({
+        title: "Invalid input",
+        description: result.error.errors[0].message,
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // Save to database
+      const validData = result.data;
+      const { error: dbError } = await supabase
+        .from("contact_messages")
+        .insert([{ name: validData.name, email: validData.email, subject: validData.subject, message: validData.message }]);
+
+      if (dbError) throw dbError;
+
+      // Send email notification
+      const { error: fnError } = await supabase.functions.invoke("send-contact-email", {
+        body: result.data,
+      });
+
+      if (fnError) {
+        console.error("Email sending failed, but message was saved:", fnError);
+      }
+
+      toast({
+        title: "Message sent! 🎉",
+        description: "Thanks for reaching out. I'll get back to you soon!",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or email me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -48,7 +101,9 @@ const Contact = () => {
                 <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
                 <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={6} className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-none text-base" placeholder="Tell me about your project..." />
               </div>
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full py-6 text-base">Send Message</Button>
+              <Button type="submit" disabled={loading} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full py-6 text-base">
+                {loading ? "Sending..." : "Send Message"}
+              </Button>
             </form>
           </div>
 
