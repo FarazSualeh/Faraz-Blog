@@ -10,17 +10,10 @@ interface SEOHeadProps {
 }
 
 const SITE_URL = "https://farazsualeh.com";
-const SITE_NAME = "Faraz Sualeh";
+const SITE_NAME = "FarazLabs";
 const DEFAULT_OG_IMAGE = "/faraz-profile.jpg";
 
-const SEOHead = ({
-  title,
-  description,
-  canonicalPath,
-  ogType = "website",
-  ogImage,
-  jsonLd,
-}: SEOHeadProps) => {
+const SEOHead = ({ title, description, canonicalPath, ogType = "website", ogImage, jsonLd }: SEOHeadProps) => {
   const fullTitle = canonicalPath === "/" ? title : `${title} | ${SITE_NAME}`;
   const canonicalUrl = `${SITE_URL}${canonicalPath}`;
   const ogImageUrl = ogImage || `${SITE_URL}${DEFAULT_OG_IMAGE}`;
@@ -65,7 +58,7 @@ const SEOHead = ({
     link.setAttribute("href", canonicalUrl);
 
     // JSON-LD
-    const existingScript = document.querySelector('script[data-seo-jsonld]');
+    const existingScript = document.querySelector("script[data-seo-jsonld]");
     if (existingScript) existingScript.remove();
 
     if (jsonLd) {
@@ -77,7 +70,7 @@ const SEOHead = ({
     }
 
     return () => {
-      const script = document.querySelector('script[data-seo-jsonld]');
+      const script = document.querySelector("script[data-seo-jsonld]");
       if (script) script.remove();
     };
   }, [fullTitle, description, canonicalUrl, ogType, ogImageUrl, jsonLd]);
