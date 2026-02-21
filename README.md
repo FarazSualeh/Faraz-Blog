@@ -40,12 +40,14 @@ Before you begin, ensure you have the following installed:
 ## 🏗️ Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd Faraz-Blog
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    # or
