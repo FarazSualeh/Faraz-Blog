@@ -2,7 +2,7 @@ import thumb001 from "@/assets/thumbnails/thumb-001.jpg";
 import thumb002 from "@/assets/thumbnails/thumb-002.jpg";
 import thumb003 from "@/assets/thumbnails/thumb-003.jpg";
 import thumb004 from "@/assets/thumbnails/thumb-004.jpg";
-import thumb005 from "@/assets/thumbnails/thumb-005.png";
+import thumb005 from "@/assets/thumbnails/thumb-005.jpg";
 import thumb006 from "@/assets/thumbnails/thumb-006.jpg";
 import thumb007 from "@/assets/thumbnails/thumb-007.jpg";
 import thumb008 from "@/assets/thumbnails/link-building.png";
