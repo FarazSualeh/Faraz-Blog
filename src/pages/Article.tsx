@@ -3,8 +3,8 @@ import Header from "@/components/Header";
 import ArticleCard from "@/components/ArticleCard";
 import { getArticleById, getRelatedArticles } from "@/data/articles";
 import NewsletterForm from "@/components/NewsletterForm";
+import SEOHead from "@/components/SEOHead";
 import { Linkedin, Link2, ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 const Article = () => {
@@ -31,8 +31,33 @@ const Article = () => {
     return "tag-webdev";
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.subtitle,
+    image: article.image,
+    datePublished: article.date,
+    author: {
+      "@type": "Person",
+      name: article.author.name,
+      url: "https://farazsualeh.com/about",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Faraz Sualeh",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-background animate-fade-in">
+      <SEOHead
+        title={article.title}
+        description={article.subtitle}
+        canonicalPath={`/article/${article.id}`}
+        ogType="article"
+        jsonLd={jsonLd}
+      />
       <Header />
       
       <main>
@@ -53,18 +78,19 @@ const Article = () => {
             src={article.image}
             alt={article.title}
             className="w-full h-full object-cover"
+            loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>
 
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 relative z-10">
           {/* Article Header */}
-          <div className="mb-12 animate-slide-up">
+          <header className="mb-12 animate-slide-up">
             <div className="flex items-center gap-3 mb-6">
               <span className={`px-4 py-2 rounded-full text-sm font-medium ${getCategoryClass(article.category)}`}>
                 {article.category}
               </span>
-              <span className="text-sm text-muted-foreground">{article.date}</span>
+              <time className="text-sm text-muted-foreground">{article.date}</time>
               <span className="text-sm text-muted-foreground">•</span>
               <span className="text-sm text-muted-foreground">{article.readTime} read</span>
             </div>
@@ -82,8 +108,11 @@ const Article = () => {
               <div className="flex items-center gap-4">
                 <img
                   src={article.author.avatar}
-                  alt={article.author.name}
+                  alt={`${article.author.name} profile photo`}
                   className="w-14 h-14 rounded-full object-cover"
+                  loading="lazy"
+                  width="56"
+                  height="56"
                 />
                 <div>
                   <p className="font-semibold">{article.author.name}</p>
@@ -111,7 +140,7 @@ const Article = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </header>
 
           {/* Article Content */}
           <div className="prose prose-lg max-w-none mb-16 animate-slide-up stagger-2">
@@ -120,12 +149,12 @@ const Article = () => {
             </p>
 
             {article.content.sections.map((section, index) => (
-              <div key={index} className="mb-10">
+              <section key={index} className="mb-10">
                 <h2 className="text-3xl font-bold mb-4">{section.heading}</h2>
                 <p className="text-lg leading-relaxed text-muted-foreground">
                   {section.content}
                 </p>
-              </div>
+              </section>
             ))}
 
             <div className="mt-12 p-6 rounded-2xl bg-muted border-l-4 border-accent">

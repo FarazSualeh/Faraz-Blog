@@ -5,6 +5,7 @@ import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import SEOHead from "@/components/SEOHead";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -72,6 +73,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background animate-fade-in">
+      <SEOHead
+        title="Contact Faraz Sualeh"
+        description="Get in touch with Faraz Sualeh for web development, SEO consulting, or collaboration opportunities."
+        canonicalPath="/contact"
+      />
       <Header />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <a href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-8 block">
@@ -92,70 +98,22 @@ const Contact = () => {
             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Send me a message</h2>
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 animate-slide-up stagger-2">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring text-base"
-                  placeholder="Your name"
-                />
+                <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring text-base" placeholder="Your name" />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring text-base"
-                  placeholder="your.email@example.com"
-                />
+                <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring text-base" placeholder="your.email@example.com" />
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring text-base"
-                  placeholder="What's this about?"
-                />
+                <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
+                <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring text-base" placeholder="What's this about?" />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-none text-base"
-                  placeholder="Tell me about your project..."
-                />
+                <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={6} className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-none text-base" placeholder="Tell me about your project..." />
               </div>
-              <Button
-                type="submit"
-                disabled={loading}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full py-6 text-base"
-              >
+              <Button type="submit" disabled={loading} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full py-6 text-base">
                 {loading ? "Sending..." : "Send Message"}
               </Button>
             </form>
@@ -184,12 +142,7 @@ const Contact = () => {
                     <p className="text-muted-foreground text-sm sm:text-base">Available for remote work worldwide</p>
                   </div>
                 </div>
-                <a
-                  href="https://github.com/farazsualeh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-4 group"
-                >
+                <a href="https://github.com/farazsualeh" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
                   <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-muted flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
                     <Github className="w-5 h-5" />
                   </div>
@@ -198,12 +151,7 @@ const Contact = () => {
                     <p className="text-muted-foreground text-sm sm:text-base">github.com/farazsualeh</p>
                   </div>
                 </a>
-                <a
-                  href="https://linkedin.com/in/faraz-sualeh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-4 group"
-                >
+                <a href="https://linkedin.com/in/faraz-sualeh" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
                   <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-muted flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
                     <Linkedin className="w-5 h-5" />
                   </div>
@@ -212,12 +160,7 @@ const Contact = () => {
                     <p className="text-muted-foreground text-sm sm:text-base">linkedin.com/in/faraz-sualeh</p>
                   </div>
                 </a>
-                <a
-                  href="https://instagram.com/editsbyfaraz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-4 group"
-                >
+                <a href="https://instagram.com/editsbyfaraz" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
                   <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-muted flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
                     <Instagram className="w-5 h-5" />
                   </div>
@@ -234,21 +177,15 @@ const Contact = () => {
               <div className="space-y-4 text-sm">
                 <div>
                   <h4 className="font-semibold mb-1">Web Development</h4>
-                  <p className="text-muted-foreground">
-                    Custom React/Next.js websites built for performance and accessibility.
-                  </p>
+                  <p className="text-muted-foreground">Custom React/Next.js websites built for performance and accessibility.</p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">SEO</h4>
-                  <p className="text-muted-foreground">
-                    Technical audits, keyword strategy, and on-page optimization to boost your rankings.
-                  </p>
+                  <p className="text-muted-foreground">Technical audits, keyword strategy, and on-page optimization to boost your rankings.</p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">Performance Optimization</h4>
-                  <p className="text-muted-foreground">
-                    Core Web Vitals improvements, page speed optimization, and lighthouse score fixes.
-                  </p>
+                  <p className="text-muted-foreground">Core Web Vitals improvements, page speed optimization, and lighthouse score fixes.</p>
                 </div>
               </div>
             </div>

@@ -1,10 +1,30 @@
 import Header from "@/components/Header";
 import { Mail, Github, Linkedin, Instagram, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SEOHead from "@/components/SEOHead";
 
 const About = () => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Faraz Sualeh",
+    url: "https://farazsualeh.com",
+    jobTitle: "Web Developer & SEO Specialist",
+    sameAs: [
+      "https://github.com/farazsualeh",
+      "https://linkedin.com/in/faraz-sualeh",
+      "https://instagram.com/editsbyfaraz",
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-background animate-fade-in">
+      <SEOHead
+        title="About Faraz Sualeh"
+        description="Learn about Faraz Sualeh — a Web Developer and SEO Specialist building fast, accessible websites that rank higher on Google."
+        canonicalPath="/about"
+        jsonLd={jsonLd}
+      />
       <Header />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <a href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-8 block">
@@ -39,26 +59,24 @@ const About = () => {
 
         <section className="mb-10 sm:mb-16 rounded-2xl bg-card p-6 sm:p-8 md:p-12">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">What I Do</h2>
-          <div className="space-y-4 text-muted-foreground">
-            <ul className="space-y-3 ml-6">
-              <li className="flex items-start">
-                <span className="mr-3 mt-1">•</span>
-                <span>Build responsive, performant websites and web apps with NextJS & TypeScript</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 mt-1">•</span>
-                <span>Optimize websites for search engines: On-page SEO, Technical SEO and Backlinks</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 mt-1">•</span>
-                <span>Improve Core Web Vitals and page performance</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 mt-1">•</span>
-                <span>Write about web development, SEO, and career growth</span>
-              </li>
-            </ul>
-          </div>
+          <ul className="space-y-3 ml-6 text-muted-foreground">
+            <li className="flex items-start">
+              <span className="mr-3 mt-1">•</span>
+              <span>Build responsive, performant websites and web apps with NextJS & TypeScript</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3 mt-1">•</span>
+              <span>Optimize websites for search engines: On-page SEO, Technical SEO and Backlinks</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3 mt-1">•</span>
+              <span>Improve Core Web Vitals and page performance</span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-3 mt-1">•</span>
+              <span>Write about web development, SEO, and career growth</span>
+            </li>
+          </ul>
         </section>
 
         <section className="mb-10 sm:mb-16">
@@ -93,31 +111,13 @@ const About = () => {
             Need a developer who understands SEO? Let's chat about your project.
           </p>
           <div className="flex items-center justify-center gap-3 sm:gap-4 mb-6">
-            <a
-              href="https://github.com/farazsualeh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95"
-              aria-label="GitHub"
-            >
+            <a href="https://github.com/farazsualeh" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95" aria-label="GitHub">
               <Github className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
-            <a
-              href="https://linkedin.com/in/faraz-sualeh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95"
-              aria-label="LinkedIn"
-            >
+            <a href="https://linkedin.com/in/faraz-sualeh" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95" aria-label="LinkedIn">
               <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
-            <a
-              href="https://instagram.com/editsbyfaraz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95"
-              aria-label="Instagram"
-            >
+            <a href="https://instagram.com/editsbyfaraz" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110 active:scale-95" aria-label="Instagram">
               <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
           </div>
