@@ -13,8 +13,10 @@ const HeroSection = () => {
             alt="Faraz Sualeh's development workspace with code editor open"
             className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
             loading="eager"
+            fetchPriority="high"
             width="800"
             height="600"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
 
