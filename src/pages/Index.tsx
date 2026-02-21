@@ -42,12 +42,12 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Faraz Sualeh",
-    url: "https://farazsualeh.com",
+    url: "https://farazlabs.lovable.app",
     description: "Practical articles on web development, SEO strategies, and career growth for developers.",
     author: {
       "@type": "Person",
       name: "Faraz Sualeh",
-      url: "https://farazsualeh.com/about",
+      url: "https://farazlabs.lovable.app/about",
     },
   };
 

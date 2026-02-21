@@ -9,7 +9,7 @@ interface SEOHeadProps {
   jsonLd?: Record<string, unknown>;
 }
 
-const SITE_URL = "https://farazsualeh.com";
+const SITE_URL = "https://farazlabs.lovable.app";
 const SITE_NAME = "FarazLabs";
 const DEFAULT_OG_IMAGE = "/faraz-profile.jpg";
 

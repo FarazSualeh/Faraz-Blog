@@ -41,7 +41,7 @@ const Article = () => {
     author: {
       "@type": "Person",
       name: article.author.name,
-      url: "https://farazsualeh.com/about",
+      url: "https://farazlabs.lovable.app/about",
     },
     publisher: {
       "@type": "Person",
