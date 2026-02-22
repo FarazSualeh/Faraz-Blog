@@ -12,8 +12,8 @@ const HeroSection = () => {
             className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
             loading="eager"
             fetchPriority="high"
-            width="800"
-            height="600"
+            width="832"
+            height="608"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
