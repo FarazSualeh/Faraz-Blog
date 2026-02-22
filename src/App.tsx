@@ -1,20 +1,22 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Article from "./pages/Article";
-import Articles from "./pages/Articles";
-import WebDev from "./pages/WebDev";
-import Seo from "./pages/Seo";
-import Tech from "./pages/Tech";
-import Career from "./pages/Career";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import NotFound from "./pages/NotFound";
+
+const Article = lazy(() => import("./pages/Article"));
+const Articles = lazy(() => import("./pages/Articles"));
+const WebDev = lazy(() => import("./pages/WebDev"));
+const Seo = lazy(() => import("./pages/Seo"));
+const Tech = lazy(() => import("./pages/Tech"));
+const Career = lazy(() => import("./pages/Career"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -24,21 +26,23 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/article/:id" element={<Article />} />
-          <Route path="/articles" element={<Articles />} />
-          <Route path="/web-dev" element={<WebDev />} />
-          <Route path="/seo" element={<Seo />} />
-          <Route path="/tech" element={<Tech />} />
-          <Route path="/career" element={<Career />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/article/:id" element={<Article />} />
+            <Route path="/articles" element={<Articles />} />
+            <Route path="/web-dev" element={<WebDev />} />
+            <Route path="/seo" element={<Seo />} />
+            <Route path="/tech" element={<Tech />} />
+            <Route path="/career" element={<Career />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
