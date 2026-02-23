@@ -1,12 +1,13 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import ArticleCard from "@/components/ArticleCard";
 import HeroSection from "@/components/HeroSection";
 import IntroSection from "@/components/IntroSection";
 import SearchBar from "@/components/SearchBar";
 import { articles } from "@/data/articles";
-import NewsletterForm from "@/components/NewsletterForm";
 import SEOHead from "@/components/SEOHead";
+
+const NewsletterForm = lazy(() => import("@/components/NewsletterForm"));
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -110,7 +111,7 @@ const Index = () => {
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
               Get my latest articles on web development and SEO delivered straight to your inbox.
             </p>
-            <NewsletterForm />
+            <Suspense fallback={null}><NewsletterForm /></Suspense>
           </div>
         </section>
       </main>

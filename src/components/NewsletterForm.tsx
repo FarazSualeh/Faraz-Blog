@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
@@ -30,6 +29,7 @@ const NewsletterForm = ({ variant = "hero" }: NewsletterFormProps) => {
 
     setLoading(true);
     try {
+      const { supabase } = await import("@/integrations/supabase/client");
       const { error } = await supabase
         .from("newsletter_subscribers")
         .insert({ email: result.data });
